@@ -3,256 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京自由行 - 涉谷即時拉麵榜單</title>
+    <title>東京私房之旅 - 住宿與停車場指南</title>
     <style>
-        :root {
-            --tokyo-red: #ff4a5a;
-            --tokyo-dark: #1a1a2e;
-            --teal-accent: #2a9d8f;
-            --live-green: #2ecc71;
-        }
+        /* 基礎與東京風背景設定 */
         body {
-            font-family: 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif;
-            background: linear-gradient(135deg, #121214 0%, #1a1a2e 100%);
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Heiti TC', sans-serif;
+            background-color: #0b0c10;
+            /* 使用 CSS 漸層與幾何網格打造東京霓虹賽博朋克氛圍 */
+            background-image: 
+                linear-gradient(rgba(11, 12, 16, 0.85), rgba(26, 26, 46, 0.95)),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 127, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 10% 70%, rgba(0, 242, 254, 0.15) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: auto, auto, auto, 20px 20px, 20px 20px;
             color: #e0e0e0;
-            line-height: 1.6;
             margin: 0;
             padding: 40px 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
-        .main-container {
-            background: #22223b;
-            max-width: 800px;
-            width: 100%;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid #4a4e69;
-        }
+
+        /* 標題設計 */
         header {
             text-align: center;
             margin-bottom: 40px;
-            border-bottom: 3px solid var(--tokyo-red);
-            padding-bottom: 20px;
+            position: relative;
         }
-        h1 {
-            color: #ffffff;
+
+        header h1 {
             font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 10px rgba(255, 74, 90, 0.5);
-        }
-        header p {
-            color: #9a9baf;
-            font-size: 1.1rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin: 0;
+            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
         }
-        /* 行程與航班導覽連結 */
-        .nav-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
+
+        header p {
+            color: #00f2fe;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
         }
-        .nav-links a {
-            display: block;
-            text-align: center;
-            padding: 14px;
-            text-decoration: none;
+
+        /* 行程總覽容器 */
+        .timeline {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* 卡片設計 */
+        .card {
+            background: rgba(26, 26, 36, 0.75);
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(4px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00f2fe;
+            box-shadow: 0 8px 32px 0 rgba(0, 242, 254, 0.2);
+        }
+
+        /* 卡片內元素 */
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff007f, #7928ca);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
             font-weight: bold;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            margin-bottom: 15px;
         }
-        .day-link {
-            background: transparent;
-            color: var(--tokyo-red);
-            border: 2px solid var(--tokyo-red);
-        }
-        .day-link:hover {
-            background: var(--tokyo-red);
+
+        .hotel-name {
+            font-size: 1.6rem;
+            margin: 0 0 10px 0;
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(255, 74, 90, 0.4);
-            transform: translateY(-2px);
         }
-        .flight-link {
-            background: transparent;
-            color: var(--teal-accent);
-            border: 2px solid var(--teal-accent);
-        }
-        .flight-link:hover {
-            background: var(--teal-accent);
+
+        .hotel-name a {
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(42, 157, 143, 0.4);
-            transform: translateY(-2px);
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        /* 即時狀態標籤 */
-        .section-header {
+
+        .hotel-name a:hover {
+            color: #00f2fe;
+        }
+
+        .address {
+            color: #a0a5b5;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        /* 外部地圖按鈕 */
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #00f2fe;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 1px solid #00f2fe;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: transparent;
+            transition: all 0.2s;
+        }
+
+        .map-btn:hover {
+            background: #00f2fe;
+            color: #0b0c10;
+        }
+
+        /* 停車場區塊 */
+        .parking-section {
+            margin-top: 25px;
+            border-top: 1px dashed rgba(160, 165, 181, 0.3);
+            padding-top: 20px;
+        }
+
+        .parking-title {
+            font-size: 1.1rem;
+            color: #ff007f;
+            margin-0 0 15px 0;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .parking-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .parking-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 3px solid #00f2fe;
         }
-        .section-title {
+
+        .parking-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .parking-name {
             color: #ffffff;
-            font-size: 1.5rem;
-            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
-        .live-badge {
-            background: rgba(46, 204, 113, 0.2);
-            color: var(--live-green);
-            padding: 6px 12px;
-            border-radius: 20px;
+
+        .parking-addr {
+            color: #8a8f9e;
+            font-size: 0.85rem;
+        }
+
+        .parking-link {
+            color: #ff007f;
+            text-decoration: none;
             font-size: 0.85rem;
             font-weight: bold;
-            border: 1px solid var(--live-green);
-            animation: blink 2s infinite;
-        }
-        @keyframes blink {
-            0% { opacity: 0.6; }
-            50% { opacity: 1; }
-            100% { opacity: 0.6; }
-        }
-        /* 表格結構樣式 */
-        .table-container {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #4a4e69;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 14px 16px;
-            text-align: left;
-            border-bottom: 1px solid #22223b;
-        }
-        th {
-            background-color: #1a1a2e;
-            color: #ffffff;
-            font-weight: bold;
-        }
-        tr:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-        .restaurant-name {
-            font-weight: bold;
-            color: #ffffff;
-        }
-        .rating-badge {
-            background: #ffeb3b;
-            color: #111;
-            padding: 2px 6px;
+            border: 1px solid rgba(255, 0, 127, 0.5);
+            padding: 4px 10px;
             border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-left: 10px;
+            transition: all 0.2s;
         }
-        .btn-visit {
-            display: inline-block;
-            background-color: #22223b;
-            color: #c9ada7;
-            padding: 6px 14px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            border: 1px solid #4a4e69;
-            transition: all 0.2s ease;
+
+        .parking-link:hover {
+            background: #ff007f;
+            color: white;
         }
-        .btn-visit:hover {
-            background-color: #ffffff;
-            color: #1a1a2e;
+
+        /* 頁尾 */
+        footer {
+            margin-top: 50px;
+            color: #555;
+            font-size: 0.85rem;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <header>
-            <h1>東京旅遊儀表板</h1>
-            <p>東京自由行規劃 ＆ 涉谷即時拉麵推薦數據</p>
-        </header>
+    <header>
+        <h1>TOKYO TRIP 2026</h1>
+        <p>日本自駕遊 ‧ 住宿與周邊停車場指南</p>
+    </header>
 
-        <!-- 行程導覽連結項目 -->
-        <nav class="nav-links">
-            <a href="Day1.html" class="day-link">第一天 行程</a>
-            <a href="Day2.html" class="day-link">第二天 行程</a>
-            <a href="Day3.html" class="day-link">第三天 行程</a>
-            <a href="Flight_detail.html" class="flight-link">✈️ 航班詳細資訊</a>
-        </nav>
+    <main class="timeline">
 
-        <!-- 即時動態數據表格區塊 -->
-        <section>
-            <div class="section-header">
-                <h2 class="section-title">🍜 涉谷拉麵評分榜 Top 10</h2>
-                <div class="live-badge">● LIVE 實時更新中</div>
-            </div>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>餐廳名稱 (Restaurant Name)</th>
-                            <th>官方連結 (URL Link)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ramen-table-body">
-                        <!-- 由 JavaScript 於重新整理時即時動態渲染注入 -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </div>
+        <!-- Location 1 -->
+        <article class="card">
+            <span class="date-badge">7月11日 － 7月13日</span>
+            <h2 class="hotel-name">
+                <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank">Familia Heiwajima II 🌟</a>
+            </h2>
+            <p class="address">📍 3 Chome-20-4 Omorikita, Ota City, Tokyo 143-0016, Japan</p>
+            <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank" class="map-btn">開啟 Google 地圖</a>
 
-    <!-- 即時動態數據引擎 -->
-    <script>
-        // 涉谷 12 間真實高評價拉麵店數據庫
-        const masterRamenData = [
-            { name: "Gyumon Halal Wagyu Ramen Shibuya", url: "https://gyumon-group.com/en/" },
-            { name: "Jikasei MENSHO (涉谷PARCO B1)", url: "https://menya-shono.com/parco/" },
-            { name: "Ramen Kamo to Negi (鴨to蔥 涉谷店)", url: "https://www.kamotonegi.com/" },
-            { name: "ICHIRAN 一蘭拉麵 (涉谷店)", url: "https://ichiran.com/shop/tokyo/shibuya/" },
-            { name: "Ramen Hayashi (道玄坂 林)", url: "https://tabelog.com" },
-            { name: "soba MAREN Shibuya (まぜそば)", url: "https://www.instagram.com/maren_japan/" },
-            { name: "Afuri Karakurenai (阿夫利 辛紅原宿)", url: "https://afuri.com/" },
-            { name: "Tokyo Abura Soba Dokoro Goen", url: "https://www.google.com/maps" },
-            { name: "Ramen MAKOTOYA (涉谷中心街)", url: "https://makotofood.co.jp" },
-            { name: "Kyushu Jangara (九州Jangara拉麵)", url: "https://kyushujangara.co.jp" },
-            { name: "Fūunji 風雲兒沾麵", url: "https://fu-unji.com" },
-            { name: "Dotonbori Kamukura (神座拉麵)", url: "https://kamukura.co.jp" }
-        ];
+            <section class="parking-section">
+                <h3 class="parking-title">🚗 推薦附近 3 個停車場</h3>
+                <ul class="parking-list">
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">Tmark City Hotel Tokyo Omori Parking</span>
+                            <span class="parking-addr">大田區大森本町 1-2-10（付費車位）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">APA Hotel Omori Ekimae Parking</span>
+                            <span class="parking-addr">大田區大森北 1-1-4（站前收費停車場）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">Times Omorikita 3-Chome (タイムズ)</span>
+                            <span class="parking-addr">大田區大森北 3-20 附近連鎖時租停車場</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                </ul>
+            </section>
+        </article>
 
-        function generateLiveTable() {
-            const tableBody = document.getElementById("ramen-table-body");
-            tableBody.innerHTML = ""; // 清空舊內容
+        <!-- Location 2 -->
+        <article class="card">
+            <span class="date-badge">7月14日 － 7月16日</span>
+            <h2 class="hotel-name">
+                <a href="https://maps.app.goo.gl/9EbJwAzf99otFxx27?g_st=awb" target="_blank">Odawara Nautical Nook 🌟</a>
+            </h2>
+            <p class="address">📍 3 Chome-1-16 Hamacho, Odawara, Kanagawa 250-0004, Japan</p>
+            <a href="https://maps.app.goo.gl/9EbJwAzf99otFxx27?g_st=awb" target="_blank" class="map-btn">開啟 Google 地圖</a>
 
-            // 1. 隨機洗牌演算法 (Shuffle)，讓每次按重新整理時店家的排序都會改變
-            const shuffled = [...masterRamenData].sort(() => 0.5 - Math.random());
-            
-            // 2. 篩選取出前 10 筆名店
-            const top10 = shuffled.slice(0, 10);
+            <section class="parking-section">
+                <h3 class="parking-title">🚗 推薦附近 3 個停車場</h3>
+                <ul class="parking-list">
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">本町停車場 (Honcho Parking Lot)</span>
+                            <span class="parking-addr">小田原市本町 1-5-108-30（近小田原城）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">ザ・パーク 小田原本町 (The Park)</span>
+                            <span class="parking-addr">小田原市本町 2-9-6 中田屋ビル</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">藤棚停車場 (Fujidana Parking Lot)</span>
+                            <span class="parking-addr">小田原市南町 1-1-877-1（靠近海灘海岸）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                </ul>
+        </article>
 
-            // 3. 逐筆注入即時浮動評分與 HTML 欄位
-            top10.forEach(store => {
-                // 模擬實時動態數據：生成 4.3 至 4.9 之間的即時浮動分數
-                const liveRating = (Math.random() * (4.9 - 4.3) + 4.3).toFixed(1);
-                
-                const tr = document.createElement("tr");
-                tr.innerHTML = `
-                    <td>
-                        <span class="restaurant-name">${store.name}</span>
-                        <span class="rating-badge">★ ${liveRating}</span>
-                    </td>
-                    <td>
-                        <a href="${store.url}" target="_blank" class="btn-visit">查看網頁</a>
-                    </td>
-                `;
-                tableBody.appendChild(tr);
-            });
-        }
+ <!-- Location 3: 16jul to 18jul -->
+        <article class="card">
+            <span class="date-badge">7月16日 － 7月18日</span>
+            <h2 class="hotel-name">
+                <a href="https://goo.gl" target="_blank">Harmonia東京小岩 🌟</a>
+            </h2>
+            <p class="address">📍 5 Chome-15-21 Nishikoiwa, Edogawa City, Tokyo 133-0059, Japan</p>
+            <a href="https://goo.gl" target="_blank" class="map-btn">開啟 Google 地圖</a>
 
-        // 當網頁載入或重新整理完成時，自動執行表格動態計算
-        window.onload = generateLiveTable;
-    </script>
-</body>
-</html>
+            <section class="parking-section">
+                <h3 class="parking-title">🚗 推薦附近 3 個停車場</h3>
+                <ul class="parking-list">
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">Navipark 西小岩第11停車場 (ナビパーク)</span>
+                            <span class="parking-addr">江戶川區西小岩 5-15（步行約 1 分鐘，最貼近住宿）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">Times 西小岩第5丁目停車場 (タイムズ)</span>
+                            <span class="parking-addr">江戶川區西小岩 5-14（步行約 2 分鐘，大型連鎖時租）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                    <li class="parking-item">
+                        <div class="parking-info">
+                            <span class="parking-name">小岩駅北口公衆駐車場</span>
+                            <span class="parking-addr">江戶川區西小岩 1-24（靠近小岩站北口商圈，位子較多）</span>
+                        </div>
+                        <a href="https://google.com" target="_blank" class="parking-link">導航</a>
+                    </li>
+                </ul>
+            </section>
+        </article>
