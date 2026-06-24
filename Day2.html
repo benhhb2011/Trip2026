@@ -1,264 +1,197 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-HK">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京冒險之旅 - Day 2</title>
+    <title>🎈 夢幻童趣！東京大冒險 Day 2 🎒</title>
+    <!-- 引入可愛的 Google 字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        /* 歡樂童趣風格基礎設定 */
+        :root {
+            --primary-color: #FF949A;
+            --secondary-color: #FFD166;
+            --bg-color: #FFF9E6;
+            --text-color: #4A4A4A;
+            --accent-color: #06D6A0;
+            --sky-color: #118AB2;
+            --purple-color: #8338EC;
+        }
+
         body {
-            background-color: #f0f7ff;
-            color: #333;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Microsoft JhengHei', sans-serif;
+            font-family: 'Fredoka One', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* 亮眼活潑 Banner */
-        .banner {
-            background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
-            padding: 30px 20px;
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 0px rgba(0,0,0,0.05), 0 20px 40px rgba(0,0,0,0.08);
+            padding: 25px;
+            box-sizing: border-box;
+            border: 4px solid var(--secondary-color);
+        }
+
+        h1 {
             text-align: center;
-            border-bottom: 6px dashed #fdcb6e;
-            position: relative;
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0px var(--secondary-color);
         }
 
-        .banner h1 {
-            color: #ffffff;
-            font-size: 2.8rem;
-            margin: 0 0 10px 0;
-            text-shadow: 3px 3px 0px #2d3436;
+        /* 行程卡片外框 */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .banner p {
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 0;
-            text-shadow: 1px 1px 0px #2d3436;
-        }
-
-        /* 返回主頁按鈕 */
-        .back-home {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 18px;
-            background-color: #e17055;
-            color: white;
-            text-decoration: none;
-            border-radius: 20px;
-            font-weight: bold;
-            box-shadow: 0 4px 0px #b33925;
-            transition: all 0.2s;
-        }
-        .back-home:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0px #b33925;
-        }
-
-        /* 時間軸容器 */
-        .timeline-container {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        /* 時間軸多彩中心線 */
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 10px;
-            bottom: 10px;
-            width: 6px;
-            background: #81ecec;
-            border-radius: 3px;
-        }
-
-        /* 行程卡片節點 */
+        /* 行程卡片 */
         .timeline-item {
             position: relative;
-            margin-bottom: 40px;
-            padding-left: 60px;
+            background: #F9F9F9;
+            padding: 15px 20px;
+            border-radius: 20px;
+            border: 2px dashed #E0E0E0;
         }
 
-        /* 圓形徽章圖示 */
-        .timeline-badge {
-            position: absolute;
-            left: 13px;
-            top: 5px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #fdcb6e;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .time {
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: var(--sky-color);
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        h2.location-title {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #333;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            z-index: 1;
+            gap: 8px;
         }
 
-        /* 卡片專屬色彩 */
-        .item-dora .timeline-badge { background-color: #ff7675; }
-        .item-ramen .timeline-badge { background-color: #fab1a0; }
-        .item-donki .timeline-badge { background-color: #fdcb6e; }
-
-        /* 卡片主體 */
-        .timeline-content {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 20px 25px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-            border: 3px solid #74b9ff;
-            transition: transform 0.3s ease;
-        }
-        .timeline-content:hover {
-            transform: translateY(-4px);
+        .info-box {
+            font-size: 14px;
+            background-color: #FFF3F3;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 8px;
+            border-left: 4px solid var(--primary-color);
         }
 
-        .item-dora .timeline-content { border-color: #ff7675; }
-        .item-ramen .timeline-content { border-color: #fab1a0; }
-        .item-donki .timeline-content { border-color: #fdcb6e; }
-
-        /* 時間標籤 */
-        .time-tag {
-            display: inline-block;
-            background-color: #2d3436;
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            margin-bottom: 10px;
+        .info-box p {
+            margin: 4px 0;
         }
 
-        .timeline-content h2 {
-            margin: 0 0 12px 0;
-            color: #2d3436;
-            font-size: 1.4rem;
-        }
-
-        .timeline-content p {
-            margin: 6px 0;
-            line-height: 1.6;
-            color: #636e72;
-        }
-
-        /* 自駕提示框 */
-        .drive-box {
-            background-color: #f1f2f6;
-            border-left: 5px solid #00cec9;
-            padding: 12px 15px;
-            margin: 15px 0;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            color: #2f3542;
-        }
-
-        /* 童趣風按鈕群 */
-        .fun-btn-group {
+        /* 按鈕群組 */
+        .btn-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
-        .fun-btn {
+        /* 按鈕樣式 */
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 18px;
+            gap: 5px;
+            background-color: var(--accent-color);
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: bold;
-            font-size: 0.9rem;
-            color: #fff;
-            box-shadow: 0 4px 0px rgba(0,0,0,0.15);
-            transition: transform 0.1s;
-        }
-        .fun-btn:active {
-            transform: translateY(3px);
-            box-shadow: none;
+            box-shadow: 0 4px 0 #04b385;
         }
 
-        .btn-blue { background-color: #0984e3; }
-        .btn-green { background-color: #2ecc71; }
-        .btn-yellow { background-color: #f1c40f; color: #2d3436; }
+        .btn.blue { background-color: var(--sky-color); box-shadow: 0 4px 0 #0d6e8e; }
+        .btn.purple { background-color: var(--purple-color); box-shadow: 0 4px 0 #621bbf; }
 
+        /* 彩蛋行程樣式 */
+        .bonus-item {
+            border-color: #B5E2FA;
+            background-color: #EDF6F9;
+        }
+        .bonus-item .time {
+            background-color: var(--purple-color);
+        }
+
+        .footer-deco {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- 頂部歡樂 Banner -->
-    <div class="banner">
-        <h1>🌟 奇幻動漫與復古拉麵街！</h1>
-        <p>Day 2：再次出發！滿載歡笑與美食的精彩行程</p>
-        <a href="index.html" class="back-home">🏠 返回主頁面</a>
-    </div>
+    <div class="container">
+        <h1>🎈 夢幻童趣！東京大冒險 Day 2 🎒</h1>
+        
+        <div class="timeline">
 
-    <!-- 時間軸行程區 -->
-    <div class="timeline-container">
-
-        <!-- 景點 1 -->
-        <div class="timeline-item item-dora">
-            <div class="timeline-badge">🐱</div>
-            <div class="timeline-content">
-                <span class="time-tag">08:00 AM</span>
-                <h2>備妥活力！出發找哆啦A夢與特色午餐</h2>
-                <p>早上 8 點準時起床！收拾好隨身包包，今天我們要開車前往充滿童年回憶的<strong>「藤子·F·不二雄博物館」</strong>！</p>
-                <p>在這裡可以盡情與帥氣的胖虎、任意門合照。中午直接在博物館主題餐廳享用精緻可愛的哆啦A夢限定料理！</p>
+            <!-- 1. 早上起床與藤子F不二雄博物館 -->
+            <div class="timeline-item">
+                <span class="time">08:00 AM</span>
+                <h2 class="location-title">🐱 藤子·F·不二雄博物館 (哆啦A夢的世界)</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">早安！八點準時起床，開車出發去找哆啦A夢玩耍，中午就在博物館主題餐廳享用超可愛的限定午餐！</p>
                 
-                <div class="drive-box">
-                    🚗 <strong>自駕車程預估：</strong><br>
-                    從大森北住宿點（Familia Heiwajima II）開車出發，順暢情況下預計需要 <strong>35 至 45 分鐘</strong> 即可到達目的地。
+                <div class="info-box">
+                    <p>🚗 <b>自駕路況提示：</b></p>
+                    <p>從大森北民宿出發，預計車程約 <b>51 分鐘</b> (19.2 公里)，經由多摩沿線道路前往。</p>
                 </div>
-
-                <div class="fun-btn-group">
-                    <a href="https://fujiko-museum.com/english.html" target="_blank" class="fun-btn btn-blue">🌐 博物館官方網站</a>
-                    <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="fun-btn btn-green">📍 開啟 Google Maps 地圖</a>
+                
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="btn">📍 開啟地圖導航</a>
+                    <a href="https://fujiko-museum.com/english.html" target="_blank" class="btn blue">🌐 博物館英文官網</a>
                 </div>
             </div>
-        </div>
 
-        <!-- 景點 2 -->
-        <div class="timeline-item item-ramen">
-            <div class="timeline-badge">🍜</div>
-            <div class="timeline-content">
-                <span class="time-tag">After Lunch</span>
-                <h2>穿越時空！新橫濱拉麵博物館的美味饗宴</h2>
-                <p>吃飽飽後，我們再次啟程自駕前往拉麵愛好者的夢幻天堂——<strong>「新橫濱拉麵博物館」</strong>！</p>
-                <p>裡面精心還原了昭和時期日本充滿人情味的懷舊街景。你可以一邊拍照，一邊品嚐來自日本全國各地的招牌拉麵，簡直太幸福了！</p>
+            <!-- 2. 新橫濱拉麵博物館 -->
+            <div class="timeline-item">
+                <span class="time">02:00 PM</span>
+                <h2 class="location-title">🍜 新橫濱拉麵博物館 (Shinyokohama Ramen Museum)</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">下午兩點左右離開，開車前往時光倒流的懷舊拉麵街，體驗日本昭和時代的復古風情，還可以品嚐到日本各地的特色小拉麵喔！</p>
                 
-                <div class="drive-box">
-                    🚗 <strong>自駕車程預估：</strong><br>
-                    從藤子·F·不二雄博物館出發，經高速公路開車前往新橫濱拉麵博物館，預計需時 <strong>30 至 35 分鐘</strong>。
+                <div class="info-box">
+                    <p>🚗 <b>自駕路況提示：</b></p>
+                    <p>從藤子博物館出發，預計車程約 <b>34 分鐘</b> (19.5 公里)，主要走東名高速道路 (此路段包含收費站)。</p>
                 </div>
-
-                <div class="fun-btn-group">
-                    <a href="https://www.raumen.co.jp/" target="_blank" class="fun-btn btn-blue">🌐 拉麵博物館官方網站</a>
-                    <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="fun-btn btn-green">📍 開啟 Google Maps 地圖</a>
+                
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="btn">📍 開啟地圖導航</a>
+                    <a href="https://www.raumen.co.jp/" target="_blank" class="btn blue">🌐 拉麵博物館官網</a>
                 </div>
             </div>
-        </div>
 
-        <!-- 景點 3 -->
-        <div class="timeline-item item-donki">
-            <div class="timeline-badge">🐧</div>
-            <div class="timeline-content">
-                <span class="time-tag">Night Time</span>
-                <h2>夜貓子限定！唐吉訶德瘋狂大採購</h2>
-                <p>回酒店前如果還精神百倍、不想太早睡覺的話，就開車直奔深受大人小孩喜愛的唐吉訶德（Donki）吧！</p>
-                <p>各式特色日本零食、獨特伴手禮、玩具應有盡有，今晚就來把自駕車上的零食庫存全部補滿！</p>
-                
-                <div class="fun-btn-group">
-                    <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="fun-btn btn-yellow">🛍️ 前往唐吉訶德 Google Maps</a>
+            <!-- 3. 隱藏版彩蛋行程 -->
+            <div class="timeline-item bonus-item">
+                <span class="time">⭐ 精力充沛限定</span>
+                <h2 class="location-title">🐧 唐吉訶德 (Don Don Donki) 宵夜尋寶</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #444;">晚上回到民宿後，如果大朋友小朋友體力還滿格、捨不得睡覺，就開車去唐吉訶德逛逛，買些好吃的日本零食和玩具吧！</p>
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn purple">📍 前往驚安殿堂</a>
                 </div>
             </div>
-        </div>
 
+        </div>
+        
+        <div class="footer-deco">✨ 🐱 🚗 🍜 ✨</div>
     </div>
 
 </body>

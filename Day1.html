@@ -1,241 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎈 Our Family Adventure: Day 1 🚀</title>
+    <title>🎈 歡樂沖天！東京大冒險 Day 1 🎒</title>
+    <!-- 引入可愛的 Google 字體 -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f0fdf4;
-            --card-color: #ffffff;
-            --primary: #ff6b6b;
-            --secondary: #4dadf7;
-            --accent: #ffd43b;
-            --success: #51cf66;
-            --donki-purple: #9c27b0;
-            --text-main: #343a40;
+            --primary-color: #FF949A;
+            --secondary-color: #FFD166;
+            --bg-color: #FFF9E6;
+            --text-color: #4A4A4A;
+            --accent-color: #06D6A0;
+            --sky-color: #118AB2;
+            --purple-color: #8338EC;
         }
-        body {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(#d3f9d8 2px, transparent 2px);
-            background-size: 24px 24px;
-            color: var(--text-main);
-            margin: 0;
-            padding: 16px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--card-color);
-            border-radius: 30px;
-            box-shadow: 0 10px 0px #c3fae8;
-            border: 4px solid #63e6be;
-            padding: 24px 16px;
-            box-sizing: border-box;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        h1 {
-            font-size: 1.8rem;
-            margin: 0;
-            color: var(--primary);
-            text-shadow: 2px 2px 0px #ffc9c9;
-        }
-        .subtitle {
-            font-size: 1rem;
-            color: var(--secondary);
-            font-weight: bold;
-            margin-top: 4px;
-        }
-        .timeline {
-            position: relative;
-            padding-left: 12px;
-        }
-        .card {
-            background: #fff;
-            border: 3px solid #e9ecef;
-            border-radius: 20px;
-            padding: 16px;
-            margin-bottom: 20px;
-            position: relative;
-            box-shadow: 0 4px 0px #e9ecef;
-            transition: transform 0.2s;
-        }
-        .card:active {
-            transform: translateY(2px);
-        }
-        .card.airplane { border-color: #a5d8ff; box-shadow: 0 4px 0px #a5d8ff; }
-        .card.car { border-color: #ffd8a8; box-shadow: 0 4px 0px #ffd8a8; }
-        .card.mall { border-color: #ffc9c9; box-shadow: 0 4px 0px #ffc9c9; }
-        .card.hostel { border-color: #b2f2bb; box-shadow: 0 4px 0px #b2f2bb; }
-        .card.shop { border-color: #e5dbff; box-shadow: 0 4px 0px #e5dbff; }
-        .card.donki { border-color: #f3b0e3; box-shadow: 0 4px 0px #f3b0e3; background: #fffcfd; }
-        
-        .time-tag {
-            display: inline-block;
-            background: var(--accent);
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            border: 2px solid #fab005;
-        }
-        .card.airplane .time-tag { background: #d0ebff; border-color: #74c0fc; color: #1c7ed6; }
-        .card.car .time-tag { background: #ffe8cc; border-color: #ffa94d; color: #d9480f; }
-        .card.mall .time-tag { background: #ffc9c9; border-color: #ff8787; color: #c92a2a; }
-        .card.hostel .time-tag { background: #d3f9d8; border-color: #8ce99a; color: #2b8a3e; }
-        .card.shop .time-tag { background: #e8dff5; border-color: #b197fc; color: #4c6ef5; }
-        .card.donki .time-tag { background: #f8d7da; border-color: #e83e8c; color: #b81d57; }
 
-        .title {
-            font-size: 1.15rem;
+        body {
+            font-family: 'Fredoka One', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 10px 0px rgba(0,0,0,0.05), 0 20px 40px rgba(0,0,0,0.08);
+            padding: 25px;
+            box-sizing: border-box;
+            border: 4px solid var(--secondary-color);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0px var(--secondary-color);
+        }
+
+        /* 行程卡片外框 */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* 行程卡片 */
+        .timeline-item {
+            position: relative;
+            background: #F9F9F9;
+            padding: 15px 20px;
+            border-radius: 20px;
+            border: 2px dashed #E0E0E0;
+        }
+
+        .time {
+            font-size: 14px;
             font-weight: bold;
-            margin: 4px 0;
+            color: white;
+            background-color: var(--sky-color);
+            padding: 3px 10px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        h2.location-title {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #333;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
-        .desc {
-            font-size: 0.9rem;
-            color: #495057;
-            margin: 6px 0;
-            line-height: 1.4;
-        }
-        .info-block {
-            background: #f8fafc;
-            border-radius: 10px;
-            padding: 8px 12px;
+
+        .info-box {
+            font-size: 14px;
+            background-color: #FFF3F3;
+            padding: 10px;
+            border-radius: 12px;
             margin-top: 8px;
-            font-size: 0.85rem;
+            border-left: 4px solid var(--primary-color);
         }
-        .info-line {
+
+        .info-box p {
             margin: 4px 0;
-            word-break: break-all;
         }
+
+        /* 標籤樣式 */
+        .tag-container {
+            margin: 8px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 8px;
+            background: #EAEAEA;
+            color: #555;
+            font-weight: bold;
+        }
+        .tag.fun { background-color: #FFD166; color: #6A4C00; }
+        .tag.shop { background-color: #B5E2FA; color: #1D4E66; }
+
+        /* 按鈕群組 */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        /* 按鈕樣式 */
         .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            background: #4dadf7;
+            gap: 5px;
+            background-color: var(--accent-color);
             color: white;
             text-decoration: none;
             padding: 6px 12px;
-            border-radius: 10px;
+            border-radius: 20px;
+            font-size: 13px;
             font-weight: bold;
-            font-size: 0.8rem;
-            margin-top: 6px;
-            border-bottom: 3px solid #1c7ed6;
+            box-shadow: 0 4px 0 #04b385;
         }
-        .btn:active {
-            border-bottom-width: 0;
-            margin-top: 9px;
-        }
-        .btn-maps { background: #37b24d; border-bottom-color: #2b8a3e; }
-        .btn-orange { background: #ff922b; border-bottom-color: #d9480f; }
-        .btn-purple { background: var(--donki-purple); border-bottom-color: #6a1b9a; }
 
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            float: right;
+        .btn.blue { background-color: var(--sky-color); box-shadow: 0 4px 0 #0d6e8e; }
+        .btn.purple { background-color: var(--purple-color); box-shadow: 0 4px 0 #621bbf; }
+
+        /* 彩蛋行程樣式 */
+        .bonus-item {
+            border-color: #B5E2FA;
+            background-color: #EDF6F9;
         }
-        .checkbox-container input {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
+        .bonus-item .time {
+            background-color: var(--purple-color);
+        }
+
+        .footer-deco {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>🎈 Japan Trip: Day 1 🚀</h1>
-        <div class="subtitle">Our Big Family Adventure Begins!</div>
-    </header>
-
-    <div class="timeline">
+    <div class="container">
+        <h1>🎈 歡樂沖天！東京大冒險 Day 1 🎒</h1>
         
-        <!-- Step 1 -->
-        <div class="card airplane">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">✈️ 07:00 AM</div>
-            <div class="title">Land in Japan! 🇯🇵</div>
-            <div class="desc">Plane touches down at Narita Airport Terminal 3! Let's stretch our legs, stretch our smiles, and walk through immigration!</div>
-            <div class="desc">👟 <strong>Next:</strong> Walk over to Terminal 2. Keep an eye out for fun signs!</div>
-        </div>
+        <div class="timeline">
 
-        <!-- Step 2 -->
-        <div class="card car">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">🚗 08:00 AM</div>
-            <div class="title">Pick Up Our Ride 🚙</div>
-            <div class="desc">Arrive at Nissan Rent A Car at Terminal 2. Time to get our adventure car keys!</div>
-            <div class="info-block">
-                <div class="info-line">🔢 <strong>Booking Ref:</strong> 26040904136</div>
+            <!-- 1. 飛機降落 -->
+            <div class="timeline-item">
+                <span class="time">07:00 AM</span>
+                <h2 class="location-title">🛬 成田機場第 3 客運大樓 (Narita Airport T3)</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">飛機順利降落囉！準備展開好玩的一天！</p>
             </div>
-            <a href="https://nissan-rentacar.com/zh/shops/3FNB2" target="_blank" class="btn btn-orange">📄 View Nissan Reservation</a>
-        </div>
 
-        <!-- Step 3 -->
-        <div class="card mall">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">🤖 10:00 AM</div>
-            <div class="title">Odaiba DiverCity! 🍔</div>
-            <div class="desc">We made it! Let's find the giant Gundam robot statue, play, shop, and grab a delicious lunch together!</div>
-            <div class="info-block">
-                <div class="info-line">📞 <strong>Tel:</strong> 0570-012-780</div>
+            <!-- 2. 租車 -->
+            <div class="timeline-item">
+                <span class="time">08:00 AM</span>
+                <h2 class="location-title">🚗 日產租車 (Nissan Rent a Car)</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">慢慢散步走到 <b>第 2 客運大樓 (T2)</b> 去辦理取車手續。</p>
+                <div class="info-box">
+                    <p>📌 <b>預約號碼：</b> <span style="color: #E63946; font-weight: bold;">26040904136</span></p>
+                </div>
+                <div class="btn-group">
+                    <a href="https://nissan-rentacar.com/zh/shops/3FNB2" target="_blank" class="btn">🌐 查看租車店舖詳情</a>
+                </div>
             </div>
-            <a href="https://maps.app.goo.gl/5ARiDujNA16wxQtDA?g_st=awb" target="_blank" class="btn btn-maps">📍 Open in Google Maps</a>
-        </div>
 
-        <!-- Step 4 & 5 -->
-        <div class="card hostel">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">🛌 03:00 PM</div>
-            <div class="title">Check-in & Recharge 🔌</div>
-            <div class="desc">Arrive at our cozy hostel home base. Drop the heavy bags, lie down, and take a sweet rest so we have energy for the evening!</div>
-            <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank" class="btn btn-maps">📍 Open Hostel Map</a>
-        </div>
-
-        <!-- Step 6 -->
-        <div class="card shop">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">🛒 04:30 PM</div>
-            <div class="title">Supermarket & Yummy Dinner 🍱</div>
-            <div class="desc">Hop back in the car to Seiyu! Let's scan the snack aisles for cool treats, go for a neighborhood walk, and enjoy dinner together.</div>
-            <div class="info-block">
-                <div class="info-line">📞 <strong>Tel:</strong> 0570-011-500</div>
+            <!-- 3. 台場 -->
+            <div class="timeline-item">
+                <span class="time">10:00 AM</span>
+                <h2 class="location-title">🤖 台場 DiverCity Tokyo Plaza</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">開車出發，預計十點到達！快來看超酷的大高達！</p>
+                <div class="info-box">
+                    <p>📞 <b>電話導航：</b> 0570-012-780</p>
+                </div>
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/5ARiDujNA16wxQtDA?g_st=awb" target="_blank" class="btn">📍 開啟地圖導航</a>
+                </div>
             </div>
-            <a href="https://maps.app.goo.gl/T4fGxJpyq51Pt1pCA?g_st=awb" target="_blank" class="btn btn-maps">📍 Open Seiyu Map</a>
-        </div>
 
-        <!-- Step 7 -->
-        <div class="card hostel">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">🌙 08:00 PM</div>
-            <div class="title">Back to Hostel 💤</div>
-            <div class="desc">Time to head back to our rooms, jump into pajamas, and get some deep sleep... unless...</div>
-        </div>
+            <!-- 4. 民宿辦理入住 -->
+            <div class="timeline-item">
+                <span class="time">03:00 PM</span>
+                <h2 class="location-title">🏡 抵達溫馨民宿 (Hostal)</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">離開台場，出發去我們這幾天的秘密基地囉！</p>
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank" class="btn">📍 帶我去民宿</a>
+                </div>
+            </div>
 
-        <!-- Step 8 (Bonus) -->
-        <div class="card donki">
-            <div class="checkbox-container"><input type="checkbox"></div>
-            <div class="time-tag">🐧 Late Night Bonus!</div>
-            <div class="title">Not Sleepy? Don Don Donki Adventure! 🛍️</div>
-            <div class="desc">Still have energy? Let's go hunt for wacky toys, unique Japanese sweets, and fun souvenirs at Don Quijote!</div>
-            <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn btn-purple">🐧 Open Donki Map</a>
-        </div>
+            <!-- 5. 休息時間 -->
+            <div class="timeline-item">
+                <span class="time">03:30 PM</span>
+                <h2 class="location-title">🛌 充電小憩時間</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">搭飛機辛苦了，在房間裡躺躺、喝口水，補滿體力！</p>
+            </div>
 
+            <!-- 6. 西友超市與遊樂園 -->
+            <div class="timeline-item">
+                <span class="time">04:30 PM</span>
+                <h2 class="location-title">🛒 西友大森店 (SEIYU) 吃喝玩樂大集合</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">開車前往超好逛的綜合商場！爸爸媽媽逛街，小朋友放電兼吃晚餐！</p>
+                
+                <div class="tag-container">
+                    <span class="tag fun">🧸 キッズランドUS (室內樂園)</span>
+                    <span class="tag shop">✂️ Seria (百圓店)</span>
+                    <span class="tag shop">👕 Shimamura (服飾)</span>
+                    <span class="tag shop">📚 BOOKOFF (玩具/二手)</span>
+                </div>
+
+                <div class="info-box">
+                    <p>📞 <b>電話導航：</b> 0570-011-500</p>
+                </div>
+                
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/T4fGxJpyq51Pt1pCA?g_st=awb" target="_blank" class="btn">📍 地圖導航</a>
+                    <a href="https://kidslandus.com/shop/tokyo-omori/" target="_blank" class="btn blue">🎡 兒童樂園官網</a>
+                    <a href="https://www.seiyu.co.jp/shop/%E8%A5%BF%E5%8F%8B%E5%A4%A7%E6%A3%AE%E5%BA%97/" target="_blank" class="btn blue">🏬 西友大森店資訊</a>
+                </div>
+            </div>
+
+            <!-- 7. 回民宿 -->
+            <div class="timeline-item">
+                <span class="time">08:00 PM</span>
+                <h2 class="location-title">🏠 回到溫馨民宿</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">洗個熱水澡，準備進入甜美夢鄉... 💤</p>
+            </div>
+
+            <!-- 8. 隱藏版彩蛋行程 -->
+            <div class="timeline-item bonus-item">
+                <span class="time">⭐ 精力充沛限定</span>
+                <h2 class="location-title">🐧 唐吉訶德 (Don Don Donki) 夜遊</h2>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #444;">如果小朋友精力旺盛還不想睡，我們就去逛逛驚安殿堂尋寶吧！</p>
+                <div class="btn-group">
+                    <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn purple">📍 前往驚安殿堂</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-deco">✨ 🧸 🚗 🍰 ✨</div>
     </div>
-</div>
 
 </body>
 </html>
