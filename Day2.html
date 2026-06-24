@@ -3,195 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎈 夢幻童趣！東京大冒險 Day 2 🎒</title>
-    <!-- 引入可愛的 Google 字體 -->
+    <title>🌈 Day 2 東京親子大冒險</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #FF949A;
-            --secondary-color: #FFD166;
-            --bg-color: #FFF9E6;
-            --text-color: #4A4A4A;
-            --accent-color: #06D6A0;
-            --sky-color: #118AB2;
-            --purple-color: #8338EC;
-        }
-
-        body {
-            font-family: 'Fredoka One', 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 10px 0px rgba(0,0,0,0.05), 0 20px 40px rgba(0,0,0,0.08);
-            padding: 25px;
-            box-sizing: border-box;
-            border: 4px solid var(--secondary-color);
-        }
-
-        h1 {
-            text-align: center;
-            color: var(--primary-color);
-            font-size: 28px;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 0px var(--secondary-color);
-        }
-
-        /* 行程卡片外框 */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        /* 行程卡片 */
-        .timeline-item {
-            position: relative;
-            background: #F9F9F9;
-            padding: 15px 20px;
-            border-radius: 20px;
-            border: 2px dashed #E0E0E0;
-        }
-
-        .time {
-            font-size: 14px;
-            font-weight: bold;
-            color: white;
-            background-color: var(--sky-color);
-            padding: 3px 10px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        h2.location-title {
-            font-size: 18px;
-            margin: 5px 0;
-            color: #333;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-box {
-            font-size: 14px;
-            background-color: #FFF3F3;
-            padding: 10px;
-            border-radius: 12px;
-            margin-top: 8px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .info-box p {
-            margin: 4px 0;
-        }
-
-        /* 按鈕群組 */
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        /* 按鈕樣式 */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            box-shadow: 0 4px 0 #04b385;
-        }
-
-        .btn.blue { background-color: var(--sky-color); box-shadow: 0 4px 0 #0d6e8e; }
-        .btn.purple { background-color: var(--purple-color); box-shadow: 0 4px 0 #621bbf; }
-
-        /* 彩蛋行程樣式 */
-        .bonus-item {
-            border-color: #B5E2FA;
-            background-color: #EDF6F9;
-        }
-        .bonus-item .time {
-            background-color: var(--purple-color);
-        }
-
-        .footer-deco {
-            text-align: center;
-            font-size: 24px;
-            margin-top: 20px;
-        }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #FFF9E6; color: #4A4A4A; padding: 15px; margin: 0; }
+        .header { text-align: center; background: linear-gradient(135deg, #FFCFD2, #B9FBC0); padding: 20px; border-radius: 20px; border: 3px solid #FFF; box-shadow: 0 5px 0 #E0DBCC; margin-bottom: 25px; }
+        .header h1 { margin: 0; font-size: 24px; color: #FF477E; }
+        .timeline { position: relative; max-width: 500px; margin: 0 auto; padding-left: 20px; }
+        .timeline::before { content: ''; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 6px; background: #4EA8DE; border-radius: 10px; }
+        .card { position: relative; background: #FFF; border-radius: 18px; padding: 15px; margin-bottom: 20px; box-shadow: 0 5px 0 #E6E0D0; border: 2px solid #F0EAD6; }
+        .card::before { content: '⭐'; position: absolute; left: -26px; top: 15px; font-size: 14px; background: #FFF; border-radius: 50%; width: 20px; height: 20px; text-align: center; }
+        .badge { display: inline-block; background: #4EA8DE; color: #FFF; padding: 3px 10px; border-radius: 12px; font-weight: bold; font-size: 13px; margin-bottom: 8px; }
+        .title { margin: 0 0 8px 0; font-size: 18px; color: #2A6F97; }
+        .box { background: #F8F9FA; border-radius: 10px; padding: 10px; margin-top: 8px; font-size: 13px; border-left: 4px solid #FF6B81; }
+        .btn { display: inline-block; padding: 6px 12px; margin: 4px 4px 4px 0; border-radius: 10px; font-size: 13px; font-weight: bold; text-decoration: none; color: white; box-shadow: 0 3px 0 #BBB; }
+        .btn-map { background: #4EA8DE; box-shadow: 0 3px 0 #3A86B7; }
+        .btn-web { background: #FFB703; box-shadow: 0 3px 0 #D49A02; }
+        .btn-tel { background: #98DDCA; box-shadow: 0 3px 0 #76BFA8; color: #333; }
+        .sub-box { border: 2px dashed #FFC6FF; background: #FFF0F5; padding: 10px; border-radius: 10px; margin-top: 8px; font-size: 13px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>🎈 夢幻童趣！東京大冒險 Day 2 🎒</h1>
-        
-        <div class="timeline">
+    <div class="header">
+        <h1>🌈 Day 2 哆啦A夢與拉麵之旅！</h1>
+    </div>
 
-            <!-- 1. 早上起床與藤子F不二雄博物館 -->
-            <div class="timeline-item">
-                <span class="time">08:00 AM</span>
-                <h2 class="location-title">🐱 藤子·F·不二雄博物館 (哆啦A夢的世界)</h2>
-                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">早安！八點準時起床，開車出發去找哆啦A夢玩耍，中午就在博物館主題餐廳享用超可愛的限定午餐！</p>
-                
-                <div class="info-box">
-                    <p>🚗 <b>自駕路況提示：</b></p>
-                    <p>從大森北民宿出發，預計車程約 <b>51 分鐘</b> (19.2 公里)，經由多摩沿線道路前往。</p>
-                </div>
-                
-                <div class="btn-group">
-                    <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="btn">📍 開啟地圖導航</a>
-                    <a href="https://fujiko-museum.com/english.html" target="_blank" class="btn blue">🌐 博物館英文官網</a>
-                </div>
+    <div class="timeline">
+
+        <!-- 1. 起床與藤子F不二雄博物館 -->
+        <div class="card">
+            <span class="badge">08:00 AM</span>
+            <h2 class="title">🐱 川崎市 藤子・F・不二雄博物館</h2>
+            <p style="margin:0; font-size:14px;">早上 8 點準時起床，全家大小開車出發！中午直接在博物館主題餐廳享用超可愛的特色午餐 🍛</p>
+            
+            <div class="box">
+                <p style="margin:0; font-weight:bold; color:#E63946;">🚗 自駕路況小提醒：</p>
+                <p style="margin:3px 0 0 0;">從大森北民宿出發，車程預估約 <b>40 - 55 分鐘</b>。建議提早出發，避開上班車潮並找好附近停車場喔！</p>
             </div>
-
-            <!-- 2. 新橫濱拉麵博物館 -->
-            <div class="timeline-item">
-                <span class="time">02:00 PM</span>
-                <h2 class="location-title">🍜 新橫濱拉麵博物館 (Shinyokohama Ramen Museum)</h2>
-                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">下午兩點左右離開，開車前往時光倒流的懷舊拉麵街，體驗日本昭和時代的復古風情，還可以品嚐到日本各地的特色小拉麵喔！</p>
-                
-                <div class="info-box">
-                    <p>🚗 <b>自駕路況提示：</b></p>
-                    <p>從藤子博物館出發，預計車程約 <b>34 分鐘</b> (19.5 公里)，主要走東名高速道路 (此路段包含收費站)。</p>
-                </div>
-                
-                <div class="btn-group">
-                    <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="btn">📍 開啟地圖導航</a>
-                    <a href="https://www.raumen.co.jp/" target="_blank" class="btn blue">🌐 拉麵博物館官網</a>
-                </div>
+            
+            <div style="margin-top:10px;">
+                <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="btn btn-map">📍 導航到不二雄博物館</a>
+                <a href="https://fujiko-museum.com/english.html" target="_blank" class="btn btn-web">🌐 博物館英文官網</a>
             </div>
-
-            <!-- 3. 隱藏版彩蛋行程 -->
-            <div class="timeline-item bonus-item">
-                <span class="time">⭐ 精力充沛限定</span>
-                <h2 class="location-title">🐧 唐吉訶德 (Don Don Donki) 宵夜尋寶</h2>
-                <p style="margin: 5px 0 0 0; font-size: 14px; color: #444;">晚上回到民宿後，如果大朋友小朋友體力還滿格、捨不得睡覺，就開車去唐吉訶德逛逛，買些好吃的日本零食和玩具吧！</p>
-                <div class="btn-group">
-                    <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn purple">📍 前往驚安殿堂</a>
-                </div>
-            </div>
-
         </div>
-        
-        <div class="footer-deco">✨ 🐱 🚗 🍜 ✨</div>
+
+        <!-- 2. 新橫濱拉麵博物館 -->
+        <div class="card">
+            <span class="badge" style="background:#FDAB3D;">02:00 PM</span>
+            <h2 class="title">🍜 新橫濱拉麵博物館 (Shinyokohama Raumen Museum)</h2>
+            <p style="margin:0; font-size:14px;">下午兩點左右離開川崎，開車前往充滿昭和復古懷舊風情的拉麵博物館，吃遍日本各地特色拉麵，還可以帶小朋友體驗復古柑仔店！</p>
+            
+            <div class="box" style="border-left-color: #FDAB3D;">
+                <p style="margin:0; font-weight:bold; color:#D49A02;">🚗 自駕路況小提醒：</p>
+                <p style="margin:3px 0 0 0;">從藤子·F·不二雄博物館出發，南下前往新橫濱，車程預估約 <b>45 - 60 分鐘</b>。</p>
+            </div>
+            
+            <div style="margin-top:10px;">
+                <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="btn btn-map">📍 導航到拉麵博物館</a>
+                <a href="https://www.raumen.co.jp/" target="_blank" class="btn btn-web">🌐 拉麵博物館官網</a>
+            </div>
+        </div>
+
+        <!-- 3. 唐吉訶德 夜貓子行程 -->
+        <div class="card" style="background:#F7F4FF; border-color:#BDB2FF;">
+            <span class="badge" style="background:#7209B7;">🌙 夜貓加碼</span>
+            <h2 class="title">🐧 唐吉訶德 BIG FUN 平和島店</h2>
+            <p style="margin:0; font-size:14px;">晚餐過後回民宿。如果大人精神還很好、還不想休息睡覺，可以開車前往平和島的驚安殿堂，繼續深夜補貨、買藥妝與伴手禮！</p>
+            
+            <div style="margin-top:10px;">
+                <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn btn-map">📍 導航到平和島唐吉訶德</a>
+                <a href="tel:0570017511" class="btn btn-tel">📞 0570-017-511</a>
+            </div>
+        </div>
+
     </div>
 
 </body>
