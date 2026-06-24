@@ -5,269 +5,301 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tokyo Trip</title>
     <style>
-        /* 基礎純黑底色與相容性排版設定 */
+        /* 基礎樣式與霓虹黑背景 */
         body {
             background-color: #000000;
             color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* 頂部導航 Banner 區域 */
-        .banner {
-            background-color: #0d0d0d;
-            border-bottom: 3px solid #00f0ff;
-            padding: 30px 15px;
-            text-align: center;
+        /* 全域霓虹發光效果 */
+        h1, h2, h3 {
+            text-shadow: 0 0 5px #fff, 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 40px #ff007f;
+            color: #fff;
+            letter-spacing: 2px;
         }
 
-        /* 繽紛桃紅霓虹大標題 */
+        /* 閃爍子效應 (Children/Flicker Effect) */
+        @keyframes blink {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px #fff, 0 0 11px #00ffff, 0 0 19px #00ffff, 0 0 40px #00ffff;
+                color: #fff;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                color: #333;
+            }
+        }
+
+        .neon-blink {
+            animation: blink 3s infinite alternate;
+        }
+
+        /* 橫幅 Banner */
+        .banner {
+            background: linear-gradient(180deg, #111 0%, #000 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid #ff007f;
+            box-shadow: 0 5px 20px rgba(255, 0, 127, 0.5);
+        }
+
         .banner h1 {
             font-size: 3rem;
-            margin: 0 0 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #ffffff;
-            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f;
+            margin-bottom: 30px;
         }
 
-        /* 按鈕容器 */
+        /* 導航按鈕容器 */
         .nav-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
-        /* 導覽按鈕：8顆按鈕各自擁有繽紛標準霓虹色 */
-        .nav-btn {
-            background: transparent;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 6px;
-            padding: 10px 20px;
+        /* 霓虹按鈕樣式 */
+        .btn-neon {
             display: inline-block;
+            padding: 12px 24px;
+            color: #00ffff;
+            border: 2px solid #00ffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px #00ffff, inset 0 0 5px #00ffff;
         }
 
-        /* 繽紛色彩分配 (粉紅、藍、紫、綠循環) */
-        .btn-1, .btn-5 { color: #ff007f; border: 2px solid #ff007f; text-shadow: 0 0 5px #ff007f; }
-        .btn-2, .btn-6 { color: #00f0ff; border: 2px solid #00f0ff; text-shadow: 0 0 5px #00f0ff; }
-        .btn-3, .btn-7 { color: #bd00ff; border: 2px solid #bd00ff; text-shadow: 0 0 5px #bd00ff; }
-        .btn-4, .btn-8 { color: #39ff14; border: 2px solid #39ff14; text-shadow: 0 0 5px #39ff14; }
+        .btn-neon:hover {
+            color: #000;
+            background-color: #00ffff;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            text-shadow: none;
+        }
 
-        /* 主要內容排版 */
+        /* 內容區塊 */
         .container {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* 獨立霓虹發光外框卡片 */
-        .card {
-            background-color: #0a0a0f;
-            border-radius: 12px;
+        .section {
+            background-color: rgba(20, 20, 20, 0.8);
+            border: 2px solid #ff007f;
+            border-radius: 10px;
             padding: 25px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
         }
 
-        .card h2 {
+        .section-blue {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .section h2 {
             margin-top: 0;
-            font-size: 1.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             padding-bottom: 10px;
-            border-bottom: 1px solid #222233;
-            margin-bottom: 20px;
         }
 
-        /* 各主要區塊獨立專屬外框與發光字體 */
-        .card-flight { border: 2px solid #ff007f; }
-        .card-flight h2 { color: #ffffff; text-shadow: 0 0 8px #ff007f; }
-
-        .card-hostel { border: 2px solid #00f0ff; }
-        .card-hostel h2 { color: #ffffff; text-shadow: 0 0 8px #00f0ff; }
-
-        .card-tips { border: 2px solid #39ff14; }
-        .card-tips h2 { color: #ffffff; text-shadow: 0 0 8px #39ff14; }
-
-        /* 機票網格雙欄排版 */
-        .flight-grid {
+        /* 航班資訊資訊 */
+        .info-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-        }
-        @media (min-width: 768px) {
-            .flight-grid { grid-template-columns: 1fr 1fr; }
+            margin-top: 15px;
         }
 
-        .flight-box {
-            background-color: #12121a;
+        @media(min-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .flight-card {
+            background: #111;
             padding: 15px;
-            border-radius: 6px;
             border-left: 4px solid #ff007f;
+            border-radius: 4px;
         }
 
-        .pnr-tag {
-            background-color: #260013;
-            border: 1px dashed #ff007f;
-            color: #ffffff;
-            padding: 8px 15px;
-            border-radius: 4px;
-            display: inline-block;
+        .pnr-box {
+            font-size: 1.2rem;
+            color: #ffff00;
+            text-shadow: 0 0 5px #ffff00;
+            font-weight: bold;
             margin-bottom: 15px;
-            font-weight: bold;
         }
 
-        /* 住宿細項排版 */
+        /* 住宿列表 */
         .hostel-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px dashed #222233;
+            background: #111;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #444;
         }
-        .hostel-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 
-        .hostel-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #ffffff;
+        .hostel-item h3 {
+            margin-top: 0;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
         }
-        
-        .hostel-date {
-            color: #ff9900;
+
+        .hostel-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffff00;
+            text-decoration: none;
+            border-bottom: 1px dashed #ffff00;
+            transition: all 0.3s;
+        }
+
+        .hostel-link:hover {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+            text-shadow: 0 0 8px #ffff00;
+        }
+
+        /* 實用提示 */
+        .tip-box {
+            background: #111;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .tip-link {
+            display: inline-block;
+            font-size: 1.3rem;
+            color: #ff007f;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px dashed #ff007f;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ff007f;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .tip-link:hover {
+            color: #fff;
+            background-color: #ff007f;
+            box-shadow: 0 0 20px #ff007f;
+        }
+
+        .time-info {
+            color: #aaa;
             font-size: 0.95rem;
-            font-weight: bold;
-            margin: 6px 0;
-            text-shadow: 0 0 3px #ff9900;
-        }
-        
-        /* 辦理入住/退房時間框 */
-        .hostel-time {
-            background-color: #001a1c;
-            border: 1px solid #00f0ff;
-            padding: 6px 12px;
-            border-radius: 4px;
-            margin: 8px 0;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-        .hostel-time span {
-            color: #00f0ff;
-            font-weight: bold;
-        }
-
-        /* 安全點擊按鈕樣式 */
-        .click-link {
-            display: inline-block;
-            background-color: #00f0ff;
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 4px;
             margin-top: 8px;
         }
-
-        .tips-btn {
-            display: inline-block;
-            background-color: #39ff14;
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 4px;
-            margin-top: 8px;
+        .time-info strong {
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <!-- 頂部導航 Banner -->
-    <header class="banner">
-        <h1>Tokyo Trip</h1>
-        <nav class="nav-container">
-            <a href="Day1.html" class="nav-btn btn-1">Day1</a>
-            <a href="Day2.html" class="nav-btn btn-2">Day2</a>
-            <a href="Day3.html" class="nav-btn btn-3">Day3</a>
-            <a href="Day4.html" class="nav-btn btn-4">Day4</a>
-            <a href="Day5.html" class="nav-btn btn-5">Day5</a>
-            <a href="Day6.html" class="nav-btn btn-6">Day6</a>
-            <a href="Day7.html" class="nav-btn btn-7">Day7</a>
-            <a href="Day8.html" class="nav-btn btn-8">Day8</a>
-        </nav>
-    </header>
+    <!-- 橫幅 Banner -->
+    <div class="banner">
+        <h1 class="neon-blink">Tokyo Trip</h1>
+        <!-- 日期導航按鈕 -->
+        <div class="nav-container">
+            <a href="Day1.html" class="btn-neon">Day 1</a>
+            <a href="Day2.html" class="btn-neon">Day 2</a>
+            <a href="Day3.html" class="btn-neon">Day 3</a>
+            <a href="Day4.html" class="btn-neon">Day 4</a>
+            <a href="Day5.html" class="btn-neon">Day 5</a>
+            <a href="Day6.html" class="btn-neon">Day 6</a>
+            <a href="Day7.html" class="btn-neon">Day 7</a>
+            <a href="Day8.html" class="btn-neon">Day 8</a>
+        </div>
+    </div>
 
-    <!-- 主要內容區 -->
-    <main class="container">
+    <div class="container">
 
-        <!-- 航班資訊卡片 -->
-        <section class="card card-flight">
+        <!-- 航班資訊區塊 -->
+        <div class="section">
             <h2>✈️ Flight Information</h2>
-            <div class="pnr-tag">Booking Number: PKGJ2S</div>
-            
-            <div class="flight-grid">
-                <div class="flight-box">
-                    <p style="color: #ff007f; margin-top: 0; font-weight: bold;">【去程】11 Jul 2026 (GK28)</p>
-                    <p>🛫 <strong>起飛：</strong> 00:55 - 香港 T1 (HKG)</p>
-                    <p>🛬 <strong>抵達：</strong> 06:15 - 成田 T3 (NRT)</p>
-                    <p>💼 手提行李：每人 7KG</p>
-                    <p>🧳 託運行李：共 25KG</p>
+            <div class="pnr-box">Booking Number: PKGJ2S</div>
+            <div class="info-grid">
+                <div class="flight-card">
+                    <h3>去程：GK28</h3>
+                    <p><strong>日期：</strong>11 Jul 2026</p>
+                    <p><strong>出發：</strong>00:55 HKG (香港國際機場 T1)</p>
+                    <p><strong>到達：</strong>06:15 NRT (成田國際機場 T3)</p>
+                    <p><strong>行李：</strong>手提 7KG/人 | 託運共 25KG</p>
                 </div>
-                <div class="flight-box" style="border-left-color: #00f0ff;">
-                    <p style="color: #00f0ff; margin-top: 0; font-weight: bold;">【回程】18 Jul 2026 (GK27)</p>
-                    <p>🛫 <strong>起飛：</strong> 20:10 - 成田 T3 (NRT)</p>
-                    <p>🛬 <strong>抵達：</strong> 23:55 - 香港 T1 (HKG)</p>
-                    <p>💼 手提行李：每人 7KG</p>
-                    <p>🧳 託運行李：共 40KG</p>
+                <div class="flight-card">
+                    <h3>回程：GK27</h3>
+                    <p><strong>日期：</strong>18 Jul 2026</p>
+                    <p><strong>出發：</strong>20:10 NRT (成田國際機場 T3)</p>
+                    <p><strong>到達：</strong>23:55 HKG (香港國際機場 T1)</p>
+                    <p><strong>行李：</strong>手提 7KG/人 | 託運共 40KG</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 住宿資訊卡片 -->
-        <section class="card card-hostel">
+        <!-- 住宿資訊區塊 -->
+        <div class="section section-blue">
             <h2>🏨 Hostel Information</h2>
             
             <!-- 住宿 1 -->
             <div class="hostel-item">
-                <div class="hostel-title">住宿 1. Familia Heiwajima II</div>
-                <div class="hostel-date">📅 11 Jul to 13 Jul</div>
-                <div class="hostel-time">🔑 Check-in: <span>16:00 - 23:00</span> | 🚪 Check-out: <span>10:00 前</span></div>
-                <p style="color: #cccccc; margin: 5px 0;">📍 3 Chome-20-4 Omorikita, Ota City, Tokyo 143-0016, Japan</p>
-                <a href="https://goo.gl" target="_blank" class="click-link">🗺️ Open Google Maps</a>
+                <h3>住宿 1. Familia Heiwajima II</h3>
+                <p><strong>日期：</strong>11 Jul to 13 Jul</p>
+                <p><strong>地址：</strong>3 Chome-20-4 Omorikita, Ota City, Tokyo 143-0016, Japan</p>
+                <div class="time-info"><strong>Check-in:</strong> 15:00 以後 | <strong>Check-out:</strong> 10:00 以前</div>
+                <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank" class="hostel-link">📍 在 Google Maps 查看位置</a>
             </div>
 
             <!-- 住宿 2 -->
             <div class="hostel-item">
-                <div class="hostel-title">住宿 2. Rembrandt Premium Fuji Gotenba</div>
-                <div class="hostel-date">📅 13 Jul to 14 Jul</div>
-                <div class="hostel-time">🔑 Check-in: <span>15:00 - 19:30</span> | 🚪 Check-out: <span>11:00 前</span></div>
-                <p style="color: #cccccc; margin: 5px 0;">📍 2571 Fukasawa, Gotemba City, Shizuoka Prefecture, 412-0023, Japan</p>
-                <a href="https://goo.gl" target="_blank" class="click-link">🗺️ Open Google Maps</a>
+                <h3>住宿 2. Rembrandt Premium Fuji Gotenba</h3>
+                <p><strong>日期：</strong>13 Jul to 14 Jul</p>
+                <p><strong>地址：</strong>2571 Fukasawa, Gotemba City, Shizuoka Prefecture, 412-0023, Japan</p>
+                <div class="time-info"><strong>Check-in:</strong> 15:00 以後 | <strong>Check-out:</strong> 11:00 以前</div>
+                <a href="https://maps.app.goo.gl/XB6fUCLb9tA39Pxg7?g_st=awb" target="_blank" class="hostel-link">📍 在 Google Maps 查看位置</a>
             </div>
 
             <!-- 住宿 3 -->
             <div class="hostel-item">
-                <div class="hostel-title">住宿 3. Odawara Nautical Nook</div>
-                <div class="hostel-date">📅 14 Jul to 16 Jul</div>
-                <div class="hostel-time">🔑 Check-in: <span>16:00 - 21:00</span> | 🚪 Check-out: <span>10:00 前</span></div>
-                <p style="color: #cccccc; margin: 5px 0;">📍 3 Chome-1-16 Hamacho, Odawara, Kanagawa 250-0004, Japan</p>
-                <a href="https://goo.gl" target="_blank" class="click-link">🗺️ Open Google Maps</a>
+                <h3>住宿 3. Odawara Nautical Nook</h3>
+                <p><strong>日期：</strong>14 Jul to 16 Jul</p>
+                <p><strong>地址：</strong>3 Chome-1-16 Hamacho, Odawara, Kanagawa 250-0004, Japan</p>
+                <div class="time-info"><strong>Check-in:</strong> 16:00 以後 | <strong>Check-out:</strong> 11:00 以前</div>
+                <a href="https://maps.app.goo.gl/9EbJwAzf99otFxx27?g_st=awb" target="_blank" class="hostel-link">📍 在 Google Maps 查看位置</a>
             </div>
 
             <!-- 住宿 4 -->
             <div class="hostel-item">
-                <div class="hostel-title">住宿 4. Harmonia東京小岩</div>
-                <div class="hostel-date">📅 16 Jul to 18 Jul</div>
-                <div class="hostel-time">🔑 Check-in: <span>16:00 後</span> | 🚪 Check-out: <span>10:00 前</span></div>
-                <p style="color: #cccccc; margin: 5px 0;">📍 5 Chome-15-21 Nishikoiwa, Edogawa City, Tokyo 133-0059, Japan</p>
-                <a href="https://goo.gl" target="_blank" class="click-link">🗺️ Open Google Maps</a>
+                <h3>住宿 4. Harmonia東京小岩</h3>
+                <p><strong>日期：</strong>16 Jul to 18 Jul</p>
+                <p><strong>地址：</strong>5 Chome-15-21 Nishikoiwa, Edogawa City, Tokyo 133-0059, Japan</p>
+                <div class="time-info"><strong>Check-in:</strong> 16:00 以後 | <strong>Check-out:</strong> 10:00 以前</div>
+                <a href="https://maps.app.goo.gl/XwRXNW7VgxDMKVDD8?g_st=awb" target="_blank" class="hostel-link">📍 在 Google Maps 查看位置</a>
             </div>
-        </section>
+        </div>
 
-        <!-- 實用提示卡片 -->
-        <section class="card card-tips">
-            <h2>💡 Travel Tips</h2>
-            <p style="margin: 0 0 15px 0; line-height: 1.5;"><strong>Tips 1:</strong> 出發前或旅途中隨時點擊下方連結追蹤日圓實時最新匯率走勢。</p>
-            <a href="https://ofx.com" target="_blank" class="tips-btn">📈 Live JPY Exchange Rates</a>
+        <!-- 實用提示區塊 -->
+        <div class="section">
+            <h2>💡 Tips & Tools</h2>
+            <div class="tip-box">
+                <p>即時日圓匯率查詢 (JPY Exchange Rates)：</p>
+                <a href="https://www.ofx.com/en-hk/exchange-rates/jpy/" target="_blank" class="tip-link">💱 點擊查看 OFX 即時匯率</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
