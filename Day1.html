@@ -3,110 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌈 Day 1 東京親子大冒險</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Day 1 繽紛東京冒險之旅！</title>
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #FFF9E6; color: #4A4A4A; padding: 15px; margin: 0; }
-        .header { text-align: center; background: linear-gradient(135deg, #FFCFD2, #B9FBC0); padding: 20px; border-radius: 20px; border: 3px solid #FFF; box-shadow: 0 5px 0 #E0DBCC; margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; color: #FF477E; }
-        .timeline { position: relative; max-width: 500px; margin: 0 auto; padding-left: 20px; }
-        .timeline::before { content: ''; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 6px; background: #FF6B81; border-radius: 10px; }
-        .card { position: relative; background: #FFF; border-radius: 18px; padding: 15px; margin-bottom: 20px; box-shadow: 0 5px 0 #E6E0D0; border: 2px solid #F0EAD6; }
-        .card::before { content: '⭐'; position: absolute; left: -26px; top: 15px; font-size: 14px; background: #FFF; border-radius: 50%; width: 20px; height: 20px; text-align: center; }
-        .badge { display: inline-block; background: #FF6B81; color: #FFF; padding: 3px 10px; border-radius: 12px; font-weight: bold; font-size: 13px; margin-bottom: 8px; }
-        .title { margin: 0 0 8px 0; font-size: 18px; color: #2A6F97; }
-        .box { background: #F8F9FA; border-radius: 10px; padding: 10px; margin-top: 8px; font-size: 13px; border-left: 4px solid #4EA8DE; }
-        .btn { display: inline-block; padding: 6px 12px; margin: 4px 4px 4px 0; border-radius: 10px; font-size: 13px; font-weight: bold; text-decoration: none; color: white; box-shadow: 0 3px 0 #BBB; }
-        .btn-map { background: #4EA8DE; box-shadow: 0 3px 0 #3A86B7; }
-        .btn-web { background: #FFB703; box-shadow: 0 3px 0 #D49A02; }
-        .btn-tel { background: #98DDCA; box-shadow: 0 3px 0 #76BFA8; color: #333; }
-        .sub-box { border: 2px dashed #FFC6FF; background: #FFF0F5; padding: 10px; border-radius: 10px; margin-top: 8px; font-size: 13px; }
+        @import url('https://googleapis.com');
+        
+        body {
+            background-color: #FFF9E6;
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #4A4A4A;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 8px 0px #F3E1B7;
+            border: 4px dashed #FFB6C1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF6B6B;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0px #FFE0E0;
+        }
+
+        .date-badge {
+            text-align: center;
+            background-color: #4D96FF;
+            color: white;
+            font-family: 'Fredoka One', sans-serif;
+            padding: 8px 20px;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0 auto 20px auto;
+            font-size: 18px;
+            box-shadow: 0 4px 0px #2A66C9;
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 20px;
+            border: 4px solid #6BCB77;
+            box-sizing: border-box;
+            margin-bottom: 25px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            bottom: 10px;
+            width: 6px;
+            background: repeating-linear-gradient(#FFD93D, #FFD93D 10px, #FFF 10px, #FFF 20px);
+            border-radius: 3px;
+        }
+
+        .card {
+            position: relative;
+            background: #F9F9F9;
+            border-radius: 18px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #E0E0E0;
+            box-shadow: 3px 3px 0px #E0E0E0;
+        }
+
+        .card.active {
+            border-color: #4D96FF;
+            box-shadow: 3px 3px 0px #4D96FF;
+            background: #F4F8FF;
+        }
+
+        .card::before {
+            content: '⭐';
+            position: absolute;
+            left: -26px;
+            top: 12px;
+            font-size: 16px;
+            background: white;
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .time {
+            font-family: 'Fredoka One', sans-serif;
+            font-size: 16px;
+            color: #FF6B6B;
+            font-weight: bold;
+            display: inline-block;
+            background: #FFE0E0;
+            padding: 2px 10px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .location {
+            font-size: 18px;
+            font-weight: bold;
+            color: #111;
+            margin: 5px 0;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        .drive-estimate {
+            background-color: #FFF3CD;
+            color: #856404;
+            border: 1px dashed #FFEBAA;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            margin: 8px 0;
+            display: inline-block;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #6BCB77;
+            color: white;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 5px;
+            box-shadow: 0 3px 0px #4AA956;
+        }
+
+        .btn-link:active {
+            transform: translateY(3px);
+            box-shadow: none;
+        }
+
+        .btn-maps {
+            background: #FF9F43;
+            box-shadow: 0 3px 0px #D3751B;
+        }
+
+        .alert-box {
+            background: #FFF0F5;
+            border-left: 4px solid #FF69B4;
+            padding: 8px;
+            margin-top: 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #D81B60;
+        }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>🌈 Day 1 歡樂家庭出發囉！</h1>
-    </div>
+<div class="container">
+    <h1>🚀 第一天冒險開始囉！</h1>
+    <div class="date-badge">11 Jul 2026 (Day 1)</div>
+    
+    <!-- 顯示 Day1.jpg 圖片 -->
+    <img src="Day1.jpg" alt="Day 1 的精彩起點" class="main-img">
 
     <div class="timeline">
 
-        <!-- 1. 下飛機 -->
+        <!-- 項目 1 -->
         <div class="card">
-            <span class="badge">07:00 AM</span>
-            <h2 class="title">🛬 成田機場 第3航廈</h2>
-            <p style="margin:0; font-size:14px;">順利降落囉！準備帶寶貝們開啟大冒險！</p>
+            <span class="time">07:00 AM</span>
+            <div class="location">🛬 成田機場 T3 (Narita Airport T3)</div>
+            <div class="info">飛機降落啦！準備下飛機囉，東京驚喜冒險正式展開！</div>
         </div>
 
-        <!-- 2. 取車 -->
-        <div class="card">
-            <span class="badge" style="background:#FDAB3D;">08:00 AM</span>
-            <h2 class="title">🚗 日產租車 (Nissan Rent a Car)</h2>
-            <p style="margin:0; font-size:14px;">步行前往第2航廈辦理取車。</p>
-            <div class="box">
-                <p style="margin:0;">🔑 <b>預約號碼：</b><span style="color:#E63946; font-weight:bold;">26040904136</span></p>
+        <!-- 項目 2 -->
+        <div class="card active">
+            <span class="time">08:00 AM</span>
+            <div class="location">🚗 日產租車成田機場第2航廈店 (Nissan Rent a Car)</div>
+            <div class="info">
+                步行前往第2航廈辦理取車。<br>
+                <strong>📝 預約號碼：</strong> 26040904136
             </div>
-            <a href="https://nissan-rentacar.com/zh/shops/3FNB2" target="_blank" class="btn btn-web">🌐 租車店官網</a>
+            <a href="https://nissan-rentacar.com/zh/shops/3FNB2" target="_blank" class="btn-link">🌐 租車店鋪資訊</a>
         </div>
 
-        <!-- 3. 台場 -->
+        <!-- 項目 3 -->
         <div class="card">
-            <span class="badge" style="background:#E2C000;">10:00 AM</span>
-            <h2 class="title">🤖 台場 DiverCity Tokyo Plaza</h2>
-            <p style="margin:0; font-size:14px;">看巨大高達、逛街、吃美食！</p>
-            <a href="https://maps.app.goo.gl/5ARiDujNA16wxQtDA?g_st=awb" target="_blank" class="btn btn-map">📍 導航到台場</a>
-            <a href="tel:0570012780" class="btn btn-tel">📞 0570-012-780</a>
-        </div>
-
-        <!-- 4 & 5. 民宿 -->
-        <div class="card">
-            <span class="badge" style="background:#52B788;">03:00 PM</span>
-            <h2 class="title">🏡 抵達旅宿休息</h2>
-            <p style="margin:0; font-size:14px;">先到旅宿 Check-in，躺著好好大休息、充電一下 💤</p>
-            <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank" class="btn btn-map">📍 導航到旅宿</a>
-        </div>
-
-        <!-- 6. 西友百貨與分流 -->
-        <div class="card">
-            <span class="badge" style="background:#219EBC;">04:30 PM</span>
-            <h2 class="title">🛍️ 西友大森店 (SEIYU)</h2>
-            <p style="margin:0; font-size:14px;">大逛 Seria、Shimamura、BOOKOFF，或在室內遊樂場玩！</p>
-            
-            <div class="sub-box">
-                <p style="margin:0; font-weight:bold; color:#2A6F97;">🎈 小朋友放電與購物：</p>
-                <p style="margin:3px 0;">キッズランドUS 東京大森店</p>
-                <a href="https://kidslandus.com/shop/tokyo-omori/" target="_blank" class="btn btn-map" style="font-size:11px; padding:3px 8px;">🌐 遊樂場官網</a>
-                <a href="https://www.seiyu.co.jp/shop/%E8%A5%BF%E5%8F%8B%E5%A4%A7%E6%A3%AE%E5%BA%97/" target="_blank" class="btn btn-web" style="font-size:11px; padding:3px 8px;">🌐 西友官網</a>
+            <span class="time">10:00 AM (預計抵達)</span>
+            <div class="location">🤖 台場 DiverCity - 哆啦A夢未來百貨 (Dora-World)</div>
+            <div class="info">
+                <div class="drive-estimate">🚗 車程預估：成田機場 T2 ➜ 台場 DiverCity 約 55~65 分鐘（經東關東自動車道）</div><br>
+                取車後開車出發前往台場囉！<br>
+                <strong>📞 電話：</strong> 0570-012-780
             </div>
-
-            <div class="sub-box" style="border-color:#FFB703; background:#FFFCE8;">
-                <p style="margin:0; font-weight:bold; color:#D49A02;">📦 Ben 專屬任務：</p>
-                <p style="margin:3px 0;">同一時間 Ben 前往對面的佐川急便取件。</p>
-                <a href="https://maps.app.goo.gl/T4fGxJpyq51Pt1pCA?g_st=awb" target="_blank" class="btn btn-map" style="font-size:11px; padding:3px 8px;">📍 導航到佐川急便</a>
-            </div>
-
-            <div style="margin-top:10px;">
-                <a href="tel:0570011500" class="btn btn-tel">📞 0570-011-500</a>
-            </div>
+            <a href="https://mirai.dora-world.com/" target="_blank" class="btn-link">🌐 哆啦A夢官網</a>
+            <a href="https://maps.app.goo.gl/5ARiDujNA16wxQtDA?g_st=awb" target="_blank" class="btn-link btn-maps">📍 導航至 DiverCity</a>
         </div>
 
-        <!-- 7. 回民宿 -->
+        <!-- 項目 4 & 5 -->
         <div class="card">
-            <span class="badge" style="background:#4361EE;">08:00 PM</span>
-            <h2 class="title">🏠 返回旅宿</h2>
-            <p style="margin:0; font-size:14px;">結束購物，提著戰利品回房間洗澡放鬆，寶貝準備睡覺囉 🛌</p>
+            <span class="time">03:00 PM</span>
+            <div class="location">🏨 民宿 / 旅舍 (Hostal)</div>
+            <div class="info">
+                <div class="drive-estimate">🚗 車程預估：台場 DiverCity ➜ 大森附近民宿 約 15~25 分鐘</div><br>
+                從台場離開後開車前往民宿辦理入住，全家一起好好睡個午覺、休息充電！💤
+            </div>
+            <a href="https://maps.app.goo.gl/tmwoW4aYS9fticbs7?g_st=awb" target="_blank" class="btn-link btn-maps">📍 導航至民宿</a>
         </div>
 
-        <!-- 8. 唐吉訶德 -->
-        <div class="card" style="background:#F7F4FF;">
-            <span class="badge" style="background:#7209B7;">🌙 夜貓加碼</span>
-            <h2 class="title">🐧 MEGA 唐吉訶德 大森山王店</h2>
-            <p style="margin:0; font-size:14px;">如果大人還不想睡，可以開車來這裡深夜大補貨！</p>
-            <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn btn-map">📍 導航到唐吉訶德</a>
-            <a href="tel:0570071411" class="btn btn-tel">📞 0570-071-411</a>
+        <!-- 項目 6 -->
+        <div class="card">
+            <span class="time">04:30 PM</span>
+            <div class="location">🛍️ 西友大森店 (SEIYU) & KidsLand US</div>
+            <div class="info">
+                開車出發購物與遊玩！媽咪和寶貝可以逛 Seria 百元店、Shimamura 服飾、BOOKOFF 挖寶，或去室內兒童樂園放心放電。<br>
+                <strong>📞 電話：</strong> 0570-011-500
+                <div class="alert-box">👨 <strong>Ben 的同步任務：</strong> 同一時間 Ben 記得去對面「佐川急便」取件喔！</div>
+            </div>
+            <a href="https://kidslandus.com/shop/tokyo-omori/" target="_blank" class="btn-link">🌐 KidsLand US 官網</a>
+            <a href="https://www.seiyu.co.jp/searchshop/tokyo/" target="_blank" class="btn-link">🌐 西友店鋪搜尋</a>
+            <a href="https://maps.app.goo.gl/T4fGxJpyq51Pt1pCA?g_st=awb" target="_blank" class="btn-link btn-maps">📍 導航至西友大森店</a>
+        </div>
+
+        <!-- 項目 7 -->
+        <div class="card">
+            <span class="time">08:00 PM</span>
+            <div class="location">🏠 返回民宿 (Hostal)</div>
+            <div class="info">結束滿足的購物與放電行程，開車回民宿休息準備睡覺。</div>
+        </div>
+
+        <!-- 項目 8 -->
+        <div class="card">
+            <span class="time">✨ 夜貓子加碼行程</span>
+            <div class="location">🐧 MEGA 唐吉訶德大森山王店 (Donki)</div>
+            <div class="info">
+                <div class="drive-estimate">🚗 車程預估：民宿 ➜ 唐吉訶德大森山王店 約 5~10 分鐘</div><br>
+                如果爸爸媽媽或寶貝精神還很好、不想睡覺，可以開車來這裡補貨，大逛特逛喔！<br>
+                <strong>📞 電話：</strong> 0570-071-411
+            </div>
+            <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn-link btn-maps">📍 導航至唐吉訶德</a>
         </div>
 
     </div>
+</div>
 
 </body>
 </html>
