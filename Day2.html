@@ -1,83 +1,199 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌈 Day 2 東京親子大冒險</title>
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Day2 澀谷與池袋卡通大冒險！</title>
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #FFF9E6; color: #4A4A4A; padding: 15px; margin: 0; }
-        .header { text-align: center; background: linear-gradient(135deg, #FFCFD2, #B9FBC0); padding: 20px; border-radius: 20px; border: 3px solid #FFF; box-shadow: 0 5px 0 #E0DBCC; margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; color: #FF477E; }
-        .timeline { position: relative; max-width: 500px; margin: 0 auto; padding-left: 20px; }
-        .timeline::before { content: ''; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 6px; background: #4EA8DE; border-radius: 10px; }
-        .card { position: relative; background: #FFF; border-radius: 18px; padding: 15px; margin-bottom: 20px; box-shadow: 0 5px 0 #E6E0D0; border: 2px solid #F0EAD6; }
-        .card::before { content: '⭐'; position: absolute; left: -26px; top: 15px; font-size: 14px; background: #FFF; border-radius: 50%; width: 20px; height: 20px; text-align: center; }
-        .badge { display: inline-block; background: #4EA8DE; color: #FFF; padding: 3px 10px; border-radius: 12px; font-weight: bold; font-size: 13px; margin-bottom: 8px; }
-        .title { margin: 0 0 8px 0; font-size: 18px; color: #2A6F97; }
-        .box { background: #F8F9FA; border-radius: 10px; padding: 10px; margin-top: 8px; font-size: 13px; border-left: 4px solid #FF6B81; }
-        .btn { display: inline-block; padding: 6px 12px; margin: 4px 4px 4px 0; border-radius: 10px; font-size: 13px; font-weight: bold; text-decoration: none; color: white; box-shadow: 0 3px 0 #BBB; }
-        .btn-map { background: #4EA8DE; box-shadow: 0 3px 0 #3A86B7; }
-        .btn-web { background: #FFB703; box-shadow: 0 3px 0 #D49A02; }
-        .btn-tel { background: #98DDCA; box-shadow: 0 3px 0 #76BFA8; color: #333; }
-        .sub-box { border: 2px dashed #FFC6FF; background: #FFF0F5; padding: 10px; border-radius: 10px; margin-top: 8px; font-size: 13px; }
+        body {
+            background-color: #FEFBEA;
+            color: #2B2A4C;
+            font-family: "PingFang TC", "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+            padding: 15px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 4px dashed #FF597B;
+            border-radius: 24px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #FF597B 0%, #FFD23F 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .header p {
+            margin: 6px 0 0 0;
+            font-size: 1rem;
+            font-weight: bold;
+            opacity: 0.95;
+        }
+        .card {
+            border: 2px solid #EAEAEA;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 25px;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .title {
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin: 6px 0 10px 0;
+            color: #111111;
+        }
+        .tag {
+            display: inline-block;
+            background: #FFF0F5;
+            color: #FF597B;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: #444444;
+        }
+        .notice {
+            background: #FFF9E6;
+            border-left: 4px solid #FFD23F;
+            padding: 10px;
+            font-size: 0.88rem;
+            border-radius: 6px;
+            margin: 12px 0;
+        }
+        .btn-group {
+            margin: 12px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 14px;
+            margin: 4px 6px 4px 0;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            background: #E8F1FF;
+            color: #1A73E8;
+            border: 1px solid #D2E3FC;
+        }
+        .btn:hover {
+            background: #D2E3FC;
+        }
+        .info {
+            background: #F7F9FA;
+            padding: 10px 12px;
+            font-size: 0.88rem;
+            border-left: 4px solid #627D98;
+            margin-top: 12px;
+            border-radius: 0 8px 8px 0;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
+<div class="container">
+
+    <!-- 頂部標題區域 -->
     <div class="header">
-        <h1>🌈 Day 2 哆啦A夢與拉麵之旅！</h1>
+        <h1>DAY 2 東京童趣大點名！</h1>
+        <p>2026年7月12日 (星期日)</p>
     </div>
 
-    <div class="timeline">
-
-        <!-- 1. 起床與藤子F不二雄博物館 -->
-        <div class="card">
-            <span class="badge">08:00 AM</span>
-            <h2 class="title">🐱 川崎市 藤子・F・不二雄博物館</h2>
-            <p style="margin:0; font-size:14px;">早上 8 點準時起床，全家大小開車出發！中午直接在博物館主題餐廳享用超可愛的特色午餐 🍛</p>
-            
-            <div class="box">
-                <p style="margin:0; font-weight:bold; color:#E63946;">🚗 自駕路況小提醒：</p>
-                <p style="margin:3px 0 0 0;">從大森北民宿出發，車程預估約 <b>40 - 55 分鐘</b>。建議提早出發，避開上班車潮並找好附近停車場喔！</p>
-            </div>
-            
-            <div style="margin-top:10px;">
-                <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="btn btn-map">📍 導航到不二雄博物館</a>
-                <a href="https://fujiko-museum.com/english.html" target="_blank" class="btn btn-web">🌐 博物館英文官網</a>
-            </div>
+    <!-- 1. 澀谷 ShinQs -->
+    <div class="card">
+        <span class="tag">⏰ 11:00 開店</span>
+        <div class="title">📍 澀谷 ShinQs (東急百貨)</div>
+        <div class="desc">🛍️ <b>目的地：</b>東京都澀谷區澀谷2-21-1。商場內有超好逛的生活雜貨「綱具屋」，開逛前別忘了先確認免稅與限定折價券資訊。</div>
+        <div class="notice">💡 <b>留意：</b>優惠券將在可以使用優惠券的店鋪派發，詳情請諮詢店員。</div>
+        <div class="btn-group">
+            <a class="btn" href="https://maps.app.goo.gl/juZZicZwyBAnGnmg6?g_st=awb" target="_blank">🗺️ Google 地圖導航</a>
+            <a class="btn" href="https://tunaguya.jp/" target="_blank">🔗 綱具屋</a>
+            <a class="btn" href="https://www.hikarie.jp/floorguide/" target="_blank">📋 Hikarie 樓層指南</a>
+            <a class="btn" href="https://www.tokyu-dept.co.jp/shinqs/translation/hantai.html" target="_blank">🎁 免稅及優惠</a>
+            <a class="btn" href="https://www.tokyu-dept.co.jp/shinqs/access/index.html" target="_blank">🚗 停車資訊</a>
         </div>
-
-        <!-- 2. 新橫濱拉麵博物館 -->
-        <div class="card">
-            <span class="badge" style="background:#FDAB3D;">02:00 PM</span>
-            <h2 class="title">🍜 新橫濱拉麵博物館 (Shinyokohama Raumen Museum)</h2>
-            <p style="margin:0; font-size:14px;">下午兩點左右離開川崎，開車前往充滿昭和復古懷舊風情的拉麵博物館，吃遍日本各地特色拉麵，還可以帶小朋友體驗復古柑仔店！</p>
-            
-            <div class="box" style="border-left-color: #FDAB3D;">
-                <p style="margin:0; font-weight:bold; color:#D49A02;">🚗 自駕路況小提醒：</p>
-                <p style="margin:3px 0 0 0;">從藤子·F·不二雄博物館出發，南下前往新橫濱，車程預估約 <b>45 - 60 分鐘</b>。</p>
-            </div>
-            
-            <div style="margin-top:10px;">
-                <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="btn btn-map">📍 導航到拉麵博物館</a>
-                <a href="https://www.raumen.co.jp/" target="_blank" class="btn btn-web">🌐 拉麵博物館官網</a>
-            </div>
+        <div class="info">
+            🚗 <b>自駕車程：</b>從 Familia Heiwajima II 出發開車約 <b>25 ~ 35 分鐘</b>。<br>
+            🅿️ <b>泊車重點：</b>每日最高停泊金額 3200 日圓，內有免費泊車及停車場入口資訊。
         </div>
-
-        <!-- 3. 唐吉訶德 夜貓子行程 -->
-        <div class="card" style="background:#F7F4FF; border-color:#BDB2FF;">
-            <span class="badge" style="background:#7209B7;">🌙 夜貓加碼</span>
-            <h2 class="title">🐧 唐吉訶德 BIG FUN 平和島店</h2>
-            <p style="margin:0; font-size:14px;">晚餐過後回民宿。如果大人精神還很好、還不想休息睡覺，可以開車前往平和島的驚安殿堂，繼續深夜補貨、買藥妝與伴手禮！</p>
-            
-            <div style="margin-top:10px;">
-                <a href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank" class="btn btn-map">📍 導航到平和島唐吉訶德</a>
-                <a href="tel:0570017511" class="btn btn-tel">📞 0570-017-511</a>
-            </div>
-        </div>
-
     </div>
+
+    <!-- 2. 一蘭拉麵 -->
+    <div class="card">
+        <span class="tag">⏰ 隨時美食補給</span>
+        <div class="title">🍜 備案：一蘭拉麵 (澀谷店)</div>
+        <div class="desc">😋 如果全家在澀谷逛街中途肚子餓了，可以考慮步行前往不遠處的一蘭拉麵，快速享用美味的拉麵！</div>
+        <div class="btn-group">
+            <a class="btn" href="https://maps.app.goo.gl/7CrJz8UdfCY4aa5h8?g_st=awb" target="_blank">🗺️ 一蘭拉麵地圖</a>
+        </div>
+    </div>
+
+    <!-- 3. 澀谷 PARCO -->
+    <div class="card">
+        <span class="tag">⏰ 澀谷下一站</span>
+        <div class="title">📍 澀谷 PARCO (The Doraemon Store)</div>
+        <div class="desc">🤖 <b>目的地：</b>東京都渋谷区宇田川町15-1 澀谷PARCO 5F。這裡有哆啦A夢官方專賣店！更棒的是，6F 還集結了寶可夢中心（Pokemon Center）以及任天堂專賣店（Nintendo Tokyo），小朋友絕對會超級開心！</div>
+        <div class="btn-group">
+            <a class="btn" href="https://maps.app.goo.gl/bmsaweDNiH76437EA?g_st=awb" target="_blank">🗺️ 澀谷 PARCO 地圖</a>
+            <a class="btn" href="https://the-doraemon-store.com/" target="_blank">💙 哆啦A夢商店官網</a>
+            <a class="btn" href="https://shibuya.parco.jp/" target="_blank">🏬 PARCO 商店清單</a>
+            <a class="btn" href="https://shibuya.parco.jp/info/access/" target="_blank">🚗 PARCO 駕車停車詳情</a>
+        </div>
+        <div class="info">
+            🚶‍♂️ <b>步行交通：</b>從上一站澀谷 ShinQs 步行過去約 <b>8 ~ 10 分鐘</b>。<br>
+            🚗 <b>駕車交通：</b>若選擇開車前往，請點選上方按鈕查看 PARCO 的專屬合作停車場與進場詳細規則。
+        </div>
+    </div>
+
+    <!-- 4. 池袋 Sunshine City -->
+    <div class="card">
+        <span class="tag">⏰ 下午焦點</span>
+        <div class="title">📍 池袋 Sunshine City 寶可夢中心</div>
+        <div class="desc">⚡ <b>這間寶可夢中心的特別之處：</b>這家 Pokémon Center Mega Tokyo 是全日本規模最大的旗艦店之一！除了限定週邊商品最齊全、有超大超好拍的寶可夢雕像外，這裡還設有全球首間「Pokémon GO Lab」實體對戰測試區，以及超可愛的「Pikachu Sweets」皮卡丘招牌甜點外帶店，非常適合親子邊吃點心邊合照！</div>
+        <div class="btn-group">
+            <a class="btn" href="https://maps.app.goo.gl/hh4hZdG7jpaUEcge8?g_st=awb" target="_blank">🗺️ 寶可夢中心地圖</a>
+            <a class="btn" href="https://sunshinecity.jp/information/access_car.html" target="_blank">🚗 Sunshine City 停車資訊</a>
+        </div>
+    </div>
+
+    <!-- 5. 回飯店休息 -->
+    <div class="card">
+        <span class="tag">⏰ 傍晚</span>
+        <div class="title">🏠 返回 Familia Heiwajima II 飯店</div>
+        <div class="desc">🚗 結束一整天豐富的購物與動漫之旅，滿載而歸開車返回位於大田區的飯店登記入住並放下戰利品休息。</div>
+        <div class="info">
+            🚗 <b>自駕車程：</b>從池袋 Sunshine City 開車返回大田區飯店，預估車程約 <b>30 ~ 45 分鐘</b>（依當下首都高路況而定）。
+        </div>
+    </div>
+
+    <!-- 6. 唐吉訶德夜巡 -->
+    <div class="card">
+        <span class="tag">⏰ 夜間備案</span>
+        <div class="title">🐧 唐吉訶德 BIG FUN 平和島店</div>
+        <div class="desc">✨ 如果晚上回飯店後精力充沛還不想睡覺，可以開車前往附近的超大唐吉訶德，享受深夜採購日本零食與玩具的樂趣！</div>
+        <div class="notice">📞 <b>店鋪電話：</b>0570-017-511</div>
+        <div class="btn-group">
+            <a class="btn" href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank">🗺️ 唐吉訶德平和島店地圖</a>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
