@@ -39,6 +39,22 @@
             font-weight: bold;
             opacity: 0.95;
         }
+ /* 主行程圖片 */
+        .hero-img-box {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px dashed var(--accent-color);
+            margin-bottom: 30px;
+            background: #f7f7f7;
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .card {
             border: 2px solid #EAEAEA;
             border-radius: 18px;
@@ -113,6 +129,11 @@
     <div class="header">
         <h1>DAY 2 東京童趣大點名！</h1>
         <p>2026年7月12日 (星期日)</p>
+    </div>
+
+    <!-- 行程大主圖 -->
+    <div class="hero-img-box">
+        <img src="Day2.jpg" alt="Day 2 行程精選照片" onerror="this.style.display='none'; alert('提示：請確保 Day2.jpg 與此網頁檔案放於同一個資料夾中！')">
     </div>
 
     <!-- 1. 澀谷 ShinQs -->
