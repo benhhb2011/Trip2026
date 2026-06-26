@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 箱根自駕大冒險 🌟</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root { --bg: #f0f7ff; --p: #ff7675; --s: #54a0ff; --a: #feca57; --t: #2c3e50; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--t); padding: 15px; }
+        .container { max-width: 580px; margin: 0 auto; background: #fff; border-radius: 25px; overflow: hidden; border: 5px solid var(--a); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .header { background: linear-gradient(135deg, #ff7675, #ff9f43); padding: 25px 15px; text-align: center; color: #fff; }
+        .header h1 { font-family: 'Fredoka', sans-serif; font-size: 1.9rem; margin-bottom: 5px; }
+        .header p { font-size: 1rem; background: rgba(255,255,255,0.25); display: inline-block; padding: 4px 12px; border-radius: 20px; font-weight: bold; }
+        .hero { padding: 15px; text-align: center; background: #fff9e6; }
+        .hero-img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 15px; border: 4px solid #fff; }
+        .timeline { padding: 15px; }
+        .drive { background: var(--s); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; display: inline-flex; margin: 10px 0 10px 20px; }
+        .card { background: #fff; border-radius: 20px; padding: 16px; margin-bottom: 5px; border: 1px solid #eee; border-left: 8px solid var(--p); }
+        .card.end { border-left-color: #1dd1a1; background: #f5fefb; }
+        .time { font-family: 'Fredoka', sans-serif; background: #341f97; color: #fff; padding: 3px 8px; border-radius: 6px; font-size: 0.85rem; display: inline-block; margin-bottom: 6px; }
+        .card.end .time { background: #10ac84; }
+        .title { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; color: var(--t); }
+        .label { font-size: 0.85rem; font-weight: bold; color: #ff9f43; margin-top: 6px; }
+        .info { font-size: 0.85rem; color: #57606f; line-height: 1.45; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+        .box { background: #f8f9fa; border-radius: 10px; padding: 8px; font-size: 0.8rem; border-top: 3px solid var(--s); }
+        .box-t { font-weight: bold; color: #2e86de; }
+        .cost { color: #ee5253; font-weight: bold; }
+        .warning { background: #fff5f5; border-radius: 10px; padding: 8px; font-size: 0.8rem; margin-top: 8px; border-left: 4px solid #ff6b6b; color: #ee5253; line-height: 1.4; }
+        .footer { text-align: center; padding: 15px; background: #f1f2f6; font-size: 0.85rem; color: #57606f; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>箱根自駕大冒險 🚗🎈</h1>
+        <p>📅 Day 5 (15 Jul 2026)</p>
+    </div>
+
+    <div class="hero">
+        <img src="Day5.jpg" alt="Day 5 行程相片" class="hero-img">
+    </div>
+
+    <div class="timeline">
+        <!-- 起點 -->
+        <div class="card end">
+            <span class="time">08:00 AM</span>
+            <div class="title">🏡 出發：Odawara Nautical Nook</div>
+            <div class="info">3 Chome-1-16 Hamacho, Odawara, Kanagawa 250-0004, Japan<br>準時出發！確認孩子繫好兒童安全座椅，設定好第一站導航，出發去箱根大冒險！</div>
+            <div class="warning">⚠️ 交通注意：早晨為平日通勤高峰，從小田原市區銜接至國道 1 號（上山方向）車流稍多，山路行駛請保持安全車距。</div>
+        </div>
+
+        <div class="drive">🚗 山路行駛：約 0.5 小時 (30分鐘)</div>
+
+        <!-- 站點 1 -->
+        <div class="card">
+            <span class="time">08:30 AM - 10:00 AM</span>
+            <div class="title">⛩️ 站點 1：箱根神社 & 水上鳥居</div>
+            <div class="label">✨ 景點簡介</div>
+            <div class="info">座落於茂密森林中的千年老神社。矗立在蘆之湖畔的紅色「平和鳥居」是最受歡迎的景色，倒映在湖水上如童話般夢幻，是絕對不可錯過的親子合影聖地。</div>
+            <div class="grid">
+                <div class="box"><div class="box-t">⏱️ 開放時間</div>境內開放：24小時<br>(御守販售 08:15-17:00)</div>
+                <div class="box"><div class="box-t">🅿️ 停車指南</div>神社專用第一/二/三停車場<br><span class="cost">費用：免費 (Free)</span></div>
+            </div>
+            <div class="warning">⚠️ 交通與排隊：水上鳥居拍照排隊人潮極多（常需排 30 分鐘以上）。安排在 8:30 清晨第一站能完美避開大批觀光團遊客！</div>
+        </div>
+
+        <div class="drive">🚗 攀升公路：約 0.35 小時 (20分鐘)</div>
+
+        <!-- 站點 2 -->
+        <div class="card">
+            <span class="time">10:20 AM - 11:50 AM</span>
+            <div class="title">🌋 站點 2：大涌谷 (停留 1.5 小時)</div>
+            <div class="label">✨ 景點簡介</div>
+            <div class="info">約 3000 年前火山大爆發留下的震撼遺跡。現場白煙裊裊並伴隨濃烈硫磺氣體，奇特的地貌像來到外太空。必吃用溫泉煮熟、外殼烏黑的「黑玉子（黑雞蛋）」，傳說吃一顆能長壽 7 年喔！</div>
+            <div class="grid">
+                <div class="box"><div class="box-t">⏱️ 開放時間</div>大涌谷園地：09:00 - 17:00</div>
+                <div class="box"><div class="box-t">🅿️ 停車指南</div>大涌谷園地收費停車場<br><span class="cost">費用：530 日圓 / 次</span></div>
+            </div>
+            <div class="warning">⚠️ 嚴重塞車瓶頸：大涌谷是箱根最著名的大塞車路段！暑假旺季唯一的上山道路極易回堵，排隊進場可能耗時較長，請多預留耐心。</div>
+        </div>
+
+        <div class="drive">🚗 山路下行：約 0.25 小時 (15分鐘)</div>
+
+        <!-- 站點 3：午餐推薦 -->
+        <div class="card">
+            <span class="time">12:05 PM - 01:10 PM</span>
+            <div class="title">🥟 站點 3：強羅 餃子センター (午餐推薦)</div>
+            <div class="label">✨ 景點簡介</div>
+            <div class="info">強羅高人氣的老字號親子友善餐廳。販售各種創意的特色餃子（如起司煎餃、經典鍋貼），外皮酥脆內餡多汁，非常符合小朋友的口味，套餐分量充足，能迅速補充上午消耗的電力。</div>
+            <div class="grid">
+                <div class="box"><div class="box-t">⏱️ 營業時間</div>11:30 - 15:00<br>(週四公休)</div>
+                <div class="box"><div class="box-t">🅿️ 停車指南</div>餐廳附設專用免費停車場<br><span class="cost">費用：免費 (Free)</span></div>
+            </div>
+            <div class="warning">⚠️ 交通注意：因正值中午用餐尖峰，若餐廳自帶車位客滿，可改停附近強羅車站周邊的付費 Coin Parking。</div>
+        </div>
+
+        <div class="drive">🚗 轉向公園：約 0.05 小時 (3分鐘)</div>
+
+        <!-- 站點 4 -->
+        <div class="card">
+            <span class="time">01:15 PM - 03:15 PM</span>
+            <div class="title">🌳 站點 4：箱根強羅公園 & 工藝館 (停留 2 小時)</div>
+            <div class="label">✨ 景點簡介</div>
+            <div class="info">百年歷史的法式整型庭園，夏季綠意盎然，中央噴泉非常消暑。園內「箱根工藝館 (Craft House)」提供吹製玻璃和手工串珠等親子手作體驗，由專業職人細心帶領孩子做出專屬旅行紀念品！</div>
+            <div class="grid">
+                <div class="box"><div class="box-t">⏱️ 開放時間</div>09:00 - 17:00<br>(最後入場 16:30)</div>
+                <div class="box"><div class="box-t">🅿️ 停車指南</div>強羅公園專用停車場 (43車位)<br><span class="cost">費用：300 日圓 / 小時</span></div>
+            </div>
+            <div class="warning">⚠️ 陡坡窄路注意：強羅地區地形起伏極大、山坡陡峭且部分小巷狹窄，上下坡及會車時請務必放慢速度。</div>
+        </div>
+
+        <div class="drive">🚗 穿過強羅：約 0.15 小時 (10分鐘)</div>
+
+        <!-- 站點 5 -->
+        <div class="card">
+            <span class="time">03:30 PM - 05:00 PM</span>
+            <div class="title">🎨 站點 5：箱根雕刻森林美術館 (15:30-17:00)</div>
+            <div class="label">✨ 景點簡介</div>
+            <div class="info">親子家庭的戶外藝術天堂！草皮上佈滿奇幻的巨型雕塑。最熱門的是專為 12 歲以下兒童設計的室內巨型炫彩編織網迷宮「網羅之森」，能讓小孩瘋狂攀爬放電，大人還能在天然溫泉足湯泡腳放鬆。</div>
+            <div class="grid">
+                <div class="box"><div class="box-t">⏱️ 開放時間</div>09:00 - 17:00<br>(最後入場 16:30)</div>
+                <div class="box"><div class="box-t">🅿️ 停車指南</div>美術館專屬收費停車場 (350車位)<br><span class="cost">費用：500 日圓 / 3小時</span></div>
+            </div>
+            <div class="warning">⚠️ 交通注意：7 月陽光強烈，為避免回到車上時車內如烤箱，進場時建議優先選擇停放至室內車位。</div>
+        </div>
+
+        <div class="drive">🚗 輕鬆下山：約 0.8 小時 (48分鐘)</div>
+
+        <!-- 終點 -->
+        <div class="card end">
+            <span class="time">06:00 PM</span>
+            <div class="title">🏡 終點：回到 Odawara Nautical Nook</div>
+            <div class="info">3 Chome-1-16 Hamacho, Odawara, Kanagawa 250-0004, Japan<br>傍晚 6 點左右安全返抵小田原包棟民宿！拍了湖中鳥居、吃了火山黑雞蛋、做了玻璃工藝、爬了炫彩繩網，孩子電力完美歸零。辛苦爸媽駕駛，箱根一日遊大成功！🎉</div>
+            <div class="warning">⚠️ 下山注意：傍晚時分國道 1 號回小田原方向（特別是箱根湯本車站周邊）容易有離場車流稍作回堵，下山請多利用低速檔（Engine Brake）控制車速。</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        🌈 祝全家擁有一段最安全、順暢又開心的箱根親子自駕回憶！ 🌈
+    </div>
+</div>
+
+</body>
+</html>
