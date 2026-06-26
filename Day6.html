@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day6 迪士尼海洋與東京小岩歡樂自駕遊！</title>
+    <style>
+        @import url('https://googleapis.com');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #fff7ed;
+            background-image: radial-gradient(#fed7aa 10%, transparent 10%);
+            background-size: 24px 24px;
+            color: #334155;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'ZCOOL KuaiLe', cursive;
+            color: #ea580c;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: white;
+            border-radius: 35px;
+            padding: 35px;
+            box-shadow: 0 15px 30px rgba(254, 215, 170, 0.6);
+            border: 6px solid #fdba74;
+        }
+
+        .header-banner {
+            text-align: center;
+            background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 3px dashed #f97316;
+        }
+
+        .main-photo {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 4px solid #f472b6;
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 35px;
+            border-left: 4px dashed #f43f5e;
+            margin-left: 15px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: '🎈';
+            position: absolute;
+            left: -50px;
+            top: 2px;
+            background: #fff;
+            font-size: 22px;
+        }
+
+        .location-title {
+            font-size: 24px;
+            margin: 0 0 12px 0;
+            color: #db2777;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .time-badge {
+            background-color: #fecdd3;
+            color: #9f1239;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .content-box {
+            background-color: #fafafa;
+            border-radius: 20px;
+            padding: 22px;
+            border-left: 6px solid #f43f5e;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .grid-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-card strong {
+            color: #ea580c;
+            display: block;
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px dotted #2563eb;
+        }
+
+        a:hover {
+            color: #db2777;
+            border-bottom-color: #db2777;
+        }
+
+        ul {
+            margin: 6px 0;
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-banner">
+            <h1>✨ 2026年7月16日 (Day 6) 夢幻海洋與童趣自駕之旅 ✨</h1>
+            <p>早起出發！大小冒險家們，今天我們要征服迪士尼海洋，再入住溫馨小岩民宿喔！🚗💨</p>
+        </div>
+
+        <!-- 展示當天照片 -->
+        <img src="Day6.jpg" alt="Day 6 精彩冒險照片" class="main-photo">
+
+        <div class="timeline">
+
+            <!-- 行程 1 -->
+            <div class="timeline-item">
+                <h2 class="location-title">
+                    🏠 Odawara Nautical Nook
+                    <span class="time-badge">07:00</span>
+                </h2>
+                <div class="content-box">
+                    <p><strong>活動：</strong> 寶貝們起床揉揉眼囉！辦理退房，將行李裝上車。</p>
+                    <p><strong>地址：</strong> 3 Chome-1-16 Hamacho, Odawara, Kanagawa 250-0004, Japan</p>
+                    <p>🌞 早晨 7:15 準時踩下油門出發，避開最核心的市區上班塞車潮！</p>
+                </div>
+            </div>
+
+            <!-- 行程 2 -->
+            <div class="timeline-item">
+                <h2 class="location-title">
+                    🚗 歡樂公路自駕（小田原 ➔ 迪士尼海洋）
+                    <span class="time-badge">07:15 - 09:00</span>
+                </h2>
+                <div class="content-box">
+                    <p><strong>車程預估：</strong> 約 <strong>1 小時 45 分鐘</strong>（全長約 101 公里，提早出發路況更順暢）。</p>
+                    <p><strong>自駕推薦路線：</strong></p>
+                    <ul>
+                        <li>從住處出發，直接駛入 <strong>小田原厚木道路（國道 271 號）</strong>。</li>
+                        <li>一路前行轉往 <strong>東名高速道路</strong>，順著東京市區方向前進。</li>
+                        <li>經由 <strong>首都高速 3 號澀谷線</strong> 穿過市區，接續轉往 <strong>首都高速灣岸線</strong>。</li>
+                        <li>於 <strong>葛西出口（Kasai Exit）</strong> 下交流道。</li>
+                        <li>順著 <strong>國道 357 號</strong> 的指標前進，即可輕鬆抵達迪士尼海洋停車場。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 行程 3 -->
+            <div class="timeline-item">
+                <h2 class="location-title">
+                    🏰 東京迪士尼海洋 (Tokyo DisneySea)
+                    <span class="time-badge">09:00 - 19:00</span>
+                </h2>
+                <div class="content-box">
+                    <p><strong>官方網站：</strong> <a href="https://www.tokyodisneyresort.jp/tc/tds/" target="_blank">東京迪士尼海洋中文官方網站</a></p>
+                    
+                    <div class="grid-info">
+                        <div class="info-card">
+                            <strong>⏰ 抵達與排隊攻略</strong>
+                            <ul>
+                                <li><strong>抵達時間：</strong> 由於早上 7 點退房，大約可在 <strong>09:00 左右</strong> 抵達園區。</li>
+                                <li><strong>常規排隊：</strong> 7 月暑假旺季人潮較多，熱門設施常規排隊通常需要 <strong>60 至 120 分鐘</strong>。</li>
+                                <li><strong>人流預測：</strong> 出發前幾天一定要點擊查看 <a href="https://disneyreal.asumirai.info/history/disneysea-crowd-calendar.html" target="_blank">迪士尼海洋人數預估與即時排隊時間預測</a> 喔！</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <strong>🎫 2大2小 門票費用</strong>
+                            <p>2026年7月旺季票價參考：</p>
+                            <ul>
+                                <li>成人票（全票）：約 8,400 日圓 × 2</li>
+                                <li>兒童票（4-11歲）：約 5,000 日圓 × 2</li>
+                                <li><strong>預估總門票費用：</strong> <strong>26,800 日圓</strong>（實際票價以官網預訂日期為準）。</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <strong>⚡ 迪士尼尊享卡 (DPA / 快速通關)</strong>
+                            <ul>
+                                <li><strong>購買方式：</strong> 取消了傳統實體 Fast Pass，全面改為入園後透過官方 App 限量付費購買。</li>
+                                <li><strong>設施單次價格：</strong> 每人每次約 <strong>1,500 至 2,500 日圓</strong>。</li>
+                                <li><strong>必搶推薦：</strong> 新園區「夢幻泉鄉」三大設施及「夢想起飛：魔幻飛行」單次為 2,500 日圓（建議一入園立刻用手機搶購）。</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <strong>🅿️ 自駕園區停車資訊</strong>
+                            <ul>
+                                <li><strong>停車費：</strong> 普通轎車週一至週五為 <strong>2,500 日圓/天</strong>（週末及日本國定假日為 3,000 日圓/天）。</li>
+                                <li>詳細路線及車位狀況請參考：<a href="https://www.tokyodisneyresort.jp/tc/tdr/access/traffic.html" target="_blank">官方自駕與停車指南網頁</a>。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行程 4 -->
+            <div class="timeline-item">
+                <h2 class="location-title">
+                    🌙 Hostal Harmonia 東京小岩
+                    <span class="time-badge">19:00 - 19:45</span>
+                </h2>
+                <div class="content-box">
+                    <p><strong>活動：</strong> 揮別迪士尼！自駕前往今晚的溫馨旅宿辦理入住。</p>
+                    <p><strong>民宿地址：</strong> 5 Chome-15-21 Nishikoiwa, Edogawa City, Tokyo 133-0059, Japan</p>
+                    <p><strong>🗺️ 導航連結：</strong> <a href="https://maps.app.goo.gl/XwRXNW7VgxDMKVDD8?g_st=awb" target="_blank">點我開啟 Google Maps 導航至民宿</a></p>
+                    <p><strong>🚗 夜間開車路線：</strong></p>
+                    <ul>
+                        <li>從迪士尼海洋出發，駛入 <strong>首都高速灣岸線（往東京/千鳥町方向）</strong>。</li>
+                        <li>於 <strong>市川系統交流道 (Ichikawa JCT)</strong> 轉接 <strong>東京外環自動車道</strong> 往北前進。</li>
+                        <li>在 <strong>京葉系統交流道 (Keiyo JCT)</strong> 駛入 <strong>京葉道路</strong>。</li>
+                        <li>從小岩附近的出口駛離高速公路，進入地方道路（如柴又街道或藏前橋通），即可抵達位於江戶川區西小岩的民宿。</li>
+                        <li><strong>車程預估：</strong> 晚上 19:00 離園，預計行車時間約 <strong>35 至 45 分鐘</strong>，剛好可以讓玩累的寶貝們在車上睡個小覺！</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
