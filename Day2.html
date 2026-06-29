@@ -1,220 +1,155 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day2 澀谷與池袋卡通大冒險！</title>
+    <title>東京親子遊 Day 2</title>
     <style>
-        body {
-            background-color: #FEFBEA;
-            color: #2B2A4C;
-            font-family: "PingFang TC", "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
-            padding: 15px;
-            margin: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            border: 4px dashed #FF597B;
-            border-radius: 24px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .header {
-            text-align: center;
-            background: linear-gradient(135deg, #FF597B 0%, #FFD23F 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 18px;
-            margin-bottom: 25px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 1.8rem;
-        }
-        .header p {
-            margin: 6px 0 0 0;
-            font-size: 1rem;
-            font-weight: bold;
-            opacity: 0.95;
-        }
- /* 主行程圖片 */
-        .hero-img-box {
-            width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 4px dashed var(--accent-color);
-            margin-bottom: 30px;
-            background: #f7f7f7;
-        }
-
-        .hero-img-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .card {
-            border: 2px solid #EAEAEA;
-            border-radius: 18px;
-            padding: 18px;
-            margin-bottom: 25px;
-            background: #ffffff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-        }
-        .title {
-            font-size: 1.15rem;
-            font-weight: bold;
-            margin: 6px 0 10px 0;
-            color: #111111;
-        }
-        .tag {
-            display: inline-block;
-            background: #FFF0F5;
-            color: #FF597B;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-        .desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 10px 0;
-            color: #444444;
-        }
-        .notice {
-            background: #FFF9E6;
-            border-left: 4px solid #FFD23F;
-            padding: 10px;
-            font-size: 0.88rem;
-            border-radius: 6px;
-            margin: 12px 0;
-        }
-        .btn-group {
-            margin: 12px 0;
-        }
-        .btn {
-            display: inline-block;
-            padding: 8px 14px;
-            margin: 4px 6px 4px 0;
-            font-size: 0.85rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 10px;
-            background: #E8F1FF;
-            color: #1A73E8;
-            border: 1px solid #D2E3FC;
-        }
-        .btn:hover {
-            background: #D2E3FC;
-        }
-        .info {
-            background: #F7F9FA;
-            padding: 10px 12px;
-            font-size: 0.88rem;
-            border-left: 4px solid #627D98;
-            margin-top: 12px;
-            border-radius: 0 8px 8px 0;
-            line-height: 1.5;
-        }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #FFF5E4; color: #4A4A4A; padding: 12px; margin: 0; line-height: 1.4; }
+        .hdr { text-align: center; background: linear-gradient(135deg, #FF7B94, #FFC75F); color: #fff; padding: 15px; border-radius: 20px; box-shadow: 0 4px 0 #E0637B; margin-bottom: 15px; }
+        .hdr h1 { margin: 0 0 5px 0; font-size: 1.5rem; text-shadow: 1.5px 1.5px #C0392B; }
+        .img-box { text-align: center; margin-bottom: 15px; }
+        .img-box img { max-width: 100%; height: auto; border: 4px solid #fff; border-radius: 12px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+        .node { background: #fff; border: 2px solid #FFD2D2; border-radius: 15px; padding: 12px; margin-bottom: 15px; box-shadow: 0 4px 0 #FFD2D2; }
+        .badge { background: #4D96FF; color: #fff; padding: 2px 8px; border-radius: 50px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 6px; }
+        .title { font-size: 1.15rem; font-weight: bold; color: #2C3E50; margin-bottom: 6px; }
+        .sub { background: #F9F9F9; border-left: 3.5px solid #FF7B94; padding: 8px; margin: 6px 0; border-radius: 0 8px 8px 0; font-size: 0.88rem; }
+        .sub-t { font-weight: bold; color: #FF7B94; margin-bottom: 2px; }
+        .info { background: #E8F4FF; border: 1.5px dashed #4D96FF; padding: 8px; border-radius: 10px; margin-top: 6px; font-size: 0.85rem; }
+        .warn { color: #D35400; background: #FFF3CD; padding: 6px; border-radius: 6px; border-left: 3px solid #E67E22; margin-top: 4px; font-size: 0.8rem; }
+        .btn { display: inline-block; background: #fff; color: #2980B9; border: 1px solid #2980B9; padding: 2px 8px; border-radius: 50px; text-decoration: none; font-size: 0.75rem; font-weight: bold; margin: 2px 1px; }
+        .btn:hover { background: #2980B9; color: #fff; }
+        .opt { border-style: dashed; border-color: #BDC3C7; background: #FAFAFA; box-shadow: 0 4px 0 #BDC3C7; }
+        .opt .badge { background: #95A5A6; }
+        footer { text-align: center; color: #95A5A6; font-size: 0.75rem; padding: 5px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-
-    <!-- 頂部標題區域 -->
-    <div class="header">
-        <h1>DAY 2 東京童趣大點名！</h1>
-        <p>2026年7月12日 (星期日)</p>
+    <!-- 網頁標題區 -->
+    <div class="hdr">
+        <h1>東京親子快樂冒險 🚀</h1>
+        <div>📅 Day 2：2026年7月12日 (星期日)</div>
     </div>
 
-    <!-- 行程大主圖 -->
-    <div class="hero-img-box">
-        <img src="Day2.jpg" alt="Day 2 行程精選照片" onerror="this.style.display='none'; alert('提示：請確保 Day2.jpg 與此網頁檔案放於同一個資料夾中！')">
+    <!-- 顯示圖片 Day2.jpg -->
+    <div class="img-box">
+        <img src="Day2.jpg" alt="Day 2 行程封面">
     </div>
 
-    <!-- 1. 澀谷 ShinQs -->
-    <div class="card">
-        <span class="tag">⏰ 11:00 開店</span>
-        <div class="title">📍 澀谷 ShinQs (東急百貨)</div>
-        <div class="desc">🛍️ <b>目的地：</b>東京都澀谷區澀谷2-21-1。商場內有超好逛的生活雜貨「綱具屋」，開逛前別忘了先確認免稅與限定折價券資訊。</div>
-        <div class="notice">💡 <b>留意：</b>優惠券將在可以使用優惠券的店鋪派發，詳情請諮詢店員。</div>
-        <div class="btn-group">
-            <a class="btn" href="https://maps.app.goo.gl/juZZicZwyBAnGnmg6?g_st=awb" target="_blank">🗺️ Google 地圖導航</a>
-            <a class="btn" href="https://tunaguya.jp/" target="_blank">🔗 綱具屋</a>
-            <a class="btn" href="https://www.hikarie.jp/floorguide/" target="_blank">📋 Hikarie 樓層指南</a>
-            <a class="btn" href="https://www.tokyu-dept.co.jp/shinqs/translation/hantai.html" target="_blank">🎁 免稅及優惠</a>
-            <a class="btn" href="https://www.tokyu-dept.co.jp/shinqs/access/index.html" target="_blank">🚗 停車資訊</a>
+    <!-- 1. 麻布台之丘 -->
+    <div class="node">
+        <span class="badge">早上行程</span>
+        <div class="title">📍 麻布台之丘 (Azabudai Hills)</div>
+        <div class="info">🚗 <b>自駕時間預估：</b>從 Familia Heiwajima II 開車出發，車程約 <b>25 ~ 35 分鐘</b>。</div>
+        
+        <div class="sub">
+            <div class="sub-t">🎨 玩樂目的 1：teamLab Borderless</div>
+            <p><b>簡介：</b>無邊界的數位藝術美術館，無數絢麗的光影隨手碰觸而起舞，非常適合激發小朋友的想像力。</p>
+            <p>⏰ <b>營業時間：</b>10:00 - 21:00（※請依據您預約的門票時間提早前往）</p>
         </div>
+
+        <div class="sub">
+            <div class="sub-t">🗼 玩樂目的 2：森JP Tower 33樓 Sky Lobby 遠望東京鐵塔</div>
+            <p><b>簡介：</b>高空大落地窗，可以用極震撼的近距離水平視角與東京鐵塔合照。</p>
+            <p>⏰ <b>營業時間：</b>假日 09:00 - 23:00</p>
+            <div class="warn">⚠️ <b>注意事項：</b>目前已取消全面免費開放！現僅限創辦會員、辦公室員工、餐廳顧客（如 Hills House Sky Room 咖啡廳消費）方可入場，請先確認最新餐飲消費規定。</div>
+        </div>
+
         <div class="info">
-            🚗 <b>自駕車程：</b>從 Familia Heiwajima II 出發開車約 <b>25 ~ 35 分鐘</b>。<br>
-            🅿️ <b>泊車重點：</b>每日最高停泊金額 3200 日圓，內有免費泊車及停車場入口資訊。
+            🅿️ <b>停車導航：</b>請停在 <b>P6 停車場</b>。<br>
+            <a class="btn" href="https://maps.app.goo.gl/1drBELRNt3vVr5f49?g_st=awb" target="_blank">P6 停車場地圖 🗺️</a>
+            <a class="btn" href="https://www.azabudai-hills.com/access/index.html" target="_blank">官方停車場指南 ℹ️</a>
         </div>
     </div>
 
-    <!-- 2. 一蘭拉麵 -->
-    <div class="card">
-        <span class="tag">⏰ 隨時美食補給</span>
-        <div class="title">🍜 備案：一蘭拉麵 (澀谷店)</div>
-        <div class="desc">😋 如果全家在澀谷逛街中途肚子餓了，可以考慮步行前往不遠處的一蘭拉麵，快速享用美味的拉麵！</div>
-        <div class="btn-group">
-            <a class="btn" href="https://maps.app.goo.gl/7CrJz8UdfCY4aa5h8?g_st=awb" target="_blank">🗺️ 一蘭拉麵地圖</a>
-        </div>
+    <!-- 1.5 選填六本木 -->
+    <div class="node opt">
+        <span class="badge">✨ 彈性加碼</span>
+        <div class="title">📍 六本木區域 (Roppongi)</div>
+        <p>若麻布台之丘行程提早結束，時間充裕可開車順道前往六本木散步。</p>
+        <div class="info">🅿️ <a class="btn" href="https://maps.app.goo.gl/unYjo5cDcvvgVGJUA?g_st=awb" target="_blank">六本木推薦停車場 🗺️</a></div>
     </div>
 
-    <!-- 3. 澀谷 PARCO -->
-    <div class="card">
-        <span class="tag">⏰ 澀谷下一站</span>
-        <div class="title">📍 澀谷 PARCO (The Doraemon Store)</div>
-        <div class="desc">🤖 <b>目的地：</b>東京都渋谷区宇田川町15-1 澀谷PARCO 5F。這裡有哆啦A夢官方專賣店！更棒的是，6F 還集結了寶可夢中心（Pokemon Center）以及任天堂專賣店（Nintendo Tokyo），小朋友絕對會超級開心！</div>
-        <div class="btn-group">
-            <a class="btn" href="https://maps.app.goo.gl/bmsaweDNiH76437EA?g_st=awb" target="_blank">🗺️ 澀谷 PARCO 地圖</a>
-            <a class="btn" href="https://the-doraemon-store.com/" target="_blank">💙 哆啦A夢商店官網</a>
-            <a class="btn" href="https://shibuya.parco.jp/" target="_blank">🏬 PARCO 商店清單</a>
-            <a class="btn" href="https://shibuya.parco.jp/info/access/" target="_blank">🚗 PARCO 駕車停車詳情</a>
+    <!-- 2. 澀谷 ShinQs -->
+    <div class="node">
+        <span class="badge">13:00 下午行程</span>
+        <div class="title">📍 Shibuya ShinQs by Tokyu Department Store</div>
+        <p>地址：東京都澀谷區澀谷2-21-1 (※注意商場 11:00 才開店)</p>
+        <p>位於澀谷 Hikarie 的百貨，匯集精緻文青日系生活雜貨與人氣甜點。</p>
+        
+        <div class="sub">
+            🛍️ <b>逛街與樓層參考連結：</b><br>
+            <a class="btn" href="https://tunaguya.jp/" target="_blank">綱具屋官網 🎨</a>
+            <a class="btn" href="https://www.hikarie.jp/floorguide/" target="_blank">Hikarie 樓層指南 🗺️</a>
         </div>
+
+        <div class="sub">
+            🎁 <b>遊客免稅及優惠：</b><br>
+            <a class="btn" href="https://www.tokyu-dept.co.jp/shinqs/translation/hantai.html" target="_blank">免稅優惠詳細說明 🧧</a>
+            <div class="warn">💡 <b>留意：</b>優惠券將在可以使用該優惠券的店鋪現場派發，詳情請直接諮詢店員。</div>
+        </div>
+
         <div class="info">
-            🚶‍♂️ <b>步行交通：</b>從上一站澀谷 ShinQs 步行過去約 <b>8 ~ 10 分鐘</b>。<br>
-            🚗 <b>駕車交通：</b>若選擇開車前往，請點選上方按鈕查看 PARCO 的專屬合作停車場與進場詳細規則。
+            🅿️ <b>停車與地圖資訊：</b>每日最高停泊金額 <b>3200yen</b>，內含免費泊車及停車場入口資訊。<br>
+            <a class="btn" href="https://maps.app.goo.gl/juZZicZwyBAnGnmg6?g_st=awb" target="_blank">Shibuya ShinQs 地圖 🗺️</a>
+            <a class="btn" href="https://www.tokyu-dept.co.jp/shinqs/access/index.html" target="_blank">官方停車與泊車優惠 🅿️</a>
         </div>
     </div>
 
-    <!-- 4. 池袋 Sunshine City -->
-    <div class="card">
-        <span class="tag">⏰ 下午焦點</span>
-        <div class="title">📍 池袋 Sunshine City 寶可夢中心</div>
-        <div class="desc">⚡ <b>這間寶可夢中心的特別之處：</b>這家 Pokémon Center Mega Tokyo 是全日本規模最大的旗艦店之一！除了限定週邊商品最齊全、有超大超好拍的寶可夢雕像外，這裡還設有全球首間「Pokémon GO Lab」實體對戰測試區，以及超可愛的「Pikachu Sweets」皮卡丘招牌甜點外帶店，非常適合親子邊吃點心邊合照！</div>
-        <div class="btn-group">
-            <a class="btn" href="https://maps.app.goo.gl/hh4hZdG7jpaUEcge8?g_st=awb" target="_blank">🗺️ 寶可夢中心地圖</a>
-            <a class="btn" href="https://sunshinecity.jp/information/access_car.html" target="_blank">🚗 Sunshine City 停車資訊</a>
-        </div>
+    <!-- 3. 一蘭拉麵備案 -->
+    <div class="node opt" style="border-color: #2ECC71; box-shadow: 0 4px 0 #2ECC71;">
+        <span class="badge" style="background:#2ECC71;">🍜 肚子餓備案</span>
+        <div class="title">📍 一蘭拉麵 (澀谷店)</div>
+        <p>如果在澀谷逛街步行途中肚子餓，可以步行順道去吃小朋友也超愛的一蘭拉麵！</p>
+        <div class="info">🚶‍♂️ <a class="btn" href="https://maps.app.goo.gl/7CrJz8UdfCY4aa5h8?g_st=awb" target="_blank">打開一蘭拉麵步行地圖 🗺️</a></div>
     </div>
 
-    <!-- 5. 回飯店休息 -->
-    <div class="card">
-        <span class="tag">⏰ 傍晚</span>
-        <div class="title">🏠 返回 Familia Heiwajima II 飯店</div>
-        <div class="desc">🚗 結束一整天豐富的購物與動漫之旅，滿載而歸開車返回位於大田區的飯店登記入住並放下戰利品休息。</div>
+    <!-- 4. 澀谷 PARCO -->
+    <div class="node">
+        <span class="badge">下午瘋狂行程</span>
+        <div class="title">📍 澀谷 PARCO (Shibuya PARCO)</div>
+        <p>地址：東京都渋谷区宇田川町15-1 渋谷PARCO 5F</p>
+        <p>動漫玩具與電玩的快樂天堂！6樓更有全家必訪的 <b>Pokemon Center</b> 與 <b>Nintendo Tokyo</b>。</p>
+        
+        <div class="sub">
+            🤖 <b>5F 焦點：The Doraemon Store</b><br>
+            超可愛的哆啦A夢官方直營專賣店，滿滿限定周邊商品！<br>
+            <a class="btn" href="https://the-doraemon-store.com/" target="_blank">哆啦A夢專賣店官網 🛒</a>
+        </div>
+
         <div class="info">
-            🚗 <b>自駕車程：</b>從池袋 Sunshine City 開車返回大田區飯店，預估車程約 <b>30 ~ 45 分鐘</b>（依當下首都高路況而定）。
+            🚶‍♂️🚗 <b>交通指南：</b><br>
+            • <b>若步行：</b>從 Shibuya ShinQs 走路過去約需 <b>8 ~ 10 分鐘</b>。<br>
+            • <b>若駕車：</b>請參考下方官方網頁內的合作停車資訊與交通細節。<br>
+            <a class="btn" href="https://maps.app.goo.gl/bmsaweDNiH76437EA?g_st=awb" target="_blank">澀谷 PARCO 地圖 🗺️</a>
+            <a class="btn" href="https://shibuya.parco.jp/" target="_blank">PARCO 商店完整列表 📜</a>
+            <a class="btn" href="https://shibuya.parco.jp/info/access/" target="_blank">官方交通/駕車詳情 ℹ️</a>
         </div>
     </div>
 
-    <!-- 6. 唐吉訶德夜巡 -->
-    <div class="card">
-        <span class="tag">⏰ 夜間備案</span>
-        <div class="title">🐧 唐吉訶德 BIG FUN 平和島店</div>
-        <div class="desc">✨ 如果晚上回飯店後精力充沛還不想睡覺，可以開車前往附近的超大唐吉訶德，享受深夜採購日本零食與玩具的樂趣！</div>
-        <div class="notice">📞 <b>店鋪電話：</b>0570-017-511</div>
-        <div class="btn-group">
-            <a class="btn" href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank">🗺️ 唐吉訶德平和島店地圖</a>
+    <!-- 6. 開車回民宿 -->
+    <div class="node">
+        <span class="badge">傍晚回程</span>
+        <div class="title">📍 開車返回溫馨民宿</div>
+        <p>目的地：Familia Heiwajima II (3 Chome-20-4 Omorikita, Ota City, Tokyo 143-0016, Japan)</p>
+        <div class="info">🚗 <b>自駕時間預估：</b>傍晚市區車流量較大，預估車程約需 <b>35 ~ 50 分鐘</b>。</div>
+    </div>
+
+    <!-- 7. 驚安殿堂加碼 -->
+    <div class="node opt" style="border-color: #9B59B6; box-shadow: 0 4px 0 #9B59B6;">
+        <span class="badge" style="background:#9B59B6;">🌙 精力充沛加碼</span>
+        <div class="title">📍 唐吉訶德 (BIG FUN 平和島店)</div>
+        <p>回到民宿後如果大人小孩還不想睡覺，可以全家出動去採購零食、水果與玩具伴手禮！</p>
+        <div class="info">
+            📞 <b>電話：</b>0570-017-511<br>
+            🗺️ <a class="btn" href="https://maps.app.goo.gl/xAr6FhraptHexnPx7?g_st=awb" target="_blank">打開驚安殿堂定位地圖 🗺️</a>
         </div>
     </div>
 
-</div>
+    <footer>
+        <p>🎈 祝福全家人度過最美好、最開心的東京假期！ 🎈</p>
+    </footer>
 
 </body>
 </html>
