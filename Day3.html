@@ -1,311 +1,125 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-HK">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 3 親子歡樂大冒險！</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #FFF9E6;
-            --primary-color: #FF6B81;
-            --secondary-color: #4EA8DE;
-            --accent-color: #FFB703;
-            --text-color: #2B2D42;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 20px;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* 趣味漂浮泡泡背景 */
-        body::before, body::after {
-            content: '🎈';
-            position: fixed;
-            font-size: 30px;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
-            z-index: -1;
-        }
-        body::before { left: 10%; top: 20%; animation-delay: 1s; }
-        body::after { right: 10%; top: 60%; animation-delay: 3s; content: '⭐'; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 30px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-            padding: 30px 20px;
-            border: 6px solid #FFD166;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        h1 {
-            font-family: 'ZCOOL KuaiLe', cursive;
-            color: var(--primary-color);
-            font-size: 2.3rem;
-            text-shadow: 2px 2px 0px #FFE5EC;
-            margin-bottom: 5px;
-        }
-
-        .date-badge {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 5px 20px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 0px #0077B6;
-        }
-
-        /* 主行程圖片 */
-        .hero-img-box {
-            width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 4px dashed var(--accent-color);
-            margin-bottom: 30px;
-            background: #f7f7f7;
-        }
-
-        .hero-img-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* 時間軸線條 */
-        .timeline {
-            position: relative;
-            padding-left: 35px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 15px;
-            bottom: 15px;
-            width: 6px;
-            background: repeating-linear-gradient(
-                to bottom,
-                #4EA8DE,
-                #4EA8DE 10px,
-                #transparent 10px,
-                #transparent 20px
-            );
-            border-radius: 3px;
-        }
-
-        /* 時間軸節點卡片 */
-        .timeline-item {
-            position: relative;
-            margin-bottom: 35px;
-            background: #FFFDF9;
-            border: 2px solid #EAEAEA;
-            border-radius: 20px;
-            padding: 20px;
-            transition: transform 0.2s ease;
-        }
-
-        .timeline-item:hover {
-            transform: scale(1.02);
-            border-color: var(--secondary-color);
-        }
-
-        /* 節點可愛圖示 */
-        .timeline-icon {
-            position: absolute;
-            left: -43px;
-            top: 12px;
-            width: 26px;
-            height: 26px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-
-        .timeline-item:nth-child(1) .timeline-icon { background: #FF6B81; }
-        .timeline-item:nth-child(2) .timeline-icon { background: #4EA8DE; }
-        .timeline-item:nth-child(3) .timeline-icon { background: #06D6A0; }
-
-        .time-tag {
-            font-size: 0.95rem;
-            color: #777;
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .location-title {
-            font-size: 1.3rem;
-            color: var(--text-color);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .location-title a {
-            color: inherit;
-            text-decoration: none;
-            border-bottom: 3px solid var(--accent-color);
-        }
-
-        .location-title a:hover {
-            color: var(--secondary-color);
-            border-bottom-color: var(--secondary-color);
-        }
-
-        .info-card {
-            background: #f9f9f9;
-            border-radius: 12px;
-            padding: 12px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .drive-tip {
-            margin-top: 8px;
-            color: #E63946;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-group {
-            margin-top: 12px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            text-decoration: none;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 3px 0px rgba(0,0,0,0.1);
-            transition: transform 0.1s;
-        }
-
-        .btn:active { transform: translateY(3px); box-shadow: none; }
-        .btn-web { background: #4EA8DE; }
-        .btn-map { background: #FFB703; }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: #aaa;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 3 親子歡樂冒險之旅</title>
+<style>
+body{font-family:'Helvetica Neue',Arial,sans-serif;background-color:#FFF9E6;color:#4A4A4A;margin:0;padding:15px;line-height:1.5}
+.container{max-width:600px;margin:0 auto;background:#FFF;border-radius:20px;padding:20px;box-shadow:0 8px 20px rgba(255,183,3,0.2);border:4px solid #FFB703}
+h1{text-align:center;color:#E63946;font-size:24px;margin-bottom:10px}
+.date-tag{text-align:center;background:#4EA8DE;color:#FFF;padding:5px 15px;border-radius:15px;display:inline-block;margin:0 auto 15px auto;font-weight:bold}
+.center-div{text-align:center}
+.banner-img{width:100%;border-radius:15px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+.flow-card{background:#F8F9FA;border-left:6px solid #FFB703;border-radius:0 15px 15px 0;padding:15px;margin-bottom:20px;position:relative}
+.flow-card.blue-theme{border-left-color:#4EA8DE}
+.flow-card.green-theme{border-left-color:#72EFDD}
+.time-tag{background:#E63946;color:#FFF;padding:3px 10px;border-radius:10px;font-size:12px;font-weight:bold;display:inline-block;margin-bottom:8px}
+.blue-theme .time-tag{background:#4EA8DE}
+.green-theme .time-tag{background:#2A9D8F}
+h2{margin:5px 0 10px 0;font-size:18px;color:#1D3557}
+h2 a{color:#1D3557;text-decoration:none;border-bottom:2px dashed #1D3557}
+.meta-info{font-size:13px;background:#FFF;padding:10px;border-radius:10px;margin-top:10px;border:1px solid #E0E0E0}
+.btn-link{display:inline-block;background:#FFB703;color:#FFF;padding:4px 10px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:bold;margin:4px 2px}
+.btn-link.official{background:#A8DADC;color:#1D3557}
+.split-options{display:grid;grid-template-columns:1fr;gap:15px;margin-top:10px}
+.opt-box{background:#FFF;border:2px dashed #9A8C98;border-radius:12px;padding:12px}
+.opt-title{font-weight:bold;color:#6D597A;font-size:15px;margin-bottom:5px;display:flex;align-items:center}
+ul{margin:5px 0;padding-left:18px;font-size:13px}
+li{margin-bottom:3px}
+.highlight{color:#E63946;font-weight:bold}
+</style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>Day 3 親子冒險特快車</h1>
-        <div class="date-badge">📅 2026年7月13日 (星期一)</div>
-    </header>
+  <h1>🎈 Day 3 親子歡樂大冒險 🚙</h1>
+  <div class="center-div"><span class="date-tag">2026年7月13日 (星期一)</span></div>
+  
+  <!-- 顯示指定圖片 -->
+  <img src="Day3.jpg" alt="Day 3 快樂旅程" class="banner-img">
 
-    <!-- 行程大主圖 -->
-    <div class="hero-img-box">
-        <img src="Day3.jpg" alt="Day 3 行程精選照片" onerror="this.style.display='none'; alert('提示：請確保 Day3.jpg 與此網頁檔案放於同一個資料夾中！')">
+  <!-- 行程 1 -->
+  <div class="flow-card">
+    <span class="time-tag">⏰ 08:00 - 12:30</span>
+    <h2>📍 <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank">川崎市 藤子・F・不二雄博物館</a></h2>
+    <p>起床活力滿滿！辦理退房手續後，開車出發前往多啦A夢的夢幻世界！中午直接在館內享用超可愛的主題角色午餐 ☕️</p>
+    <div>
+      <a href="https://fujiko-museum.com/english.html" target="_blank" class="btn-link official">🌐 官方網站</a>
+      <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="btn-link">🗺️ 導航地圖</a>
     </div>
+    <div class="meta-info">
+      🚗 <b>自駕車程預估：</b>從大田區大森北出發，車程約 <span class="highlight">40 - 50 分鐘</span>（經首都高速/中央自動車道，視早高峰路況而定）。
+    </div>
+  </div>
 
-    <!-- 時間軸開跑 -->
-    <div class="timeline">
+  <!-- 行程 2 (二選一精采抉擇) -->
+  <div class="flow-card blue-theme">
+    <span class="time-tag">⏰ 13:00 - 16:30</span>
+    <h2>📍 下午行程黃金二選一（請選擇一個方案）</h2>
+    
+    <div class="split-options">
+      <!-- 選項 1 -->
+      <div class="opt-box">
+        <div class="opt-title">🍜 選項 1：新橫濱拉麵博物館</div>
+        <p style="font-size:13px;margin:5px 0;">走入昭和時代的懷舊街景，一次品嚐日本全國的特色拉麵！非常適合愛美食的小朋友。</p>
+        <a href="https://www.raumen.co.jp/" target="_blank" class="btn-link official">🌐 官方網站</a>
+        <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="btn-link">🗺️ 導航地圖</a>
+        <div class="meta-info" style="margin-top:8px;font-size:12px;">
+          🚙 <b>車程：</b>從藤子F不二雄博物館出發，車程約 <span class="highlight">35 - 45 分鐘</span>。
+        </div>
+      </div>
+      
+      <!-- 選項 2 -->
+      <div class="opt-box" style="border-color:#4EA8DE;">
+        <div class="opt-title">🎡 選項 2：讀賣樂園 (Yomiuriland)</div>
+        <p style="font-size:13px;margin:5px 0;">東京超大遊樂園！今日專注暢玩陸上設施（不進水上樂園），充實放電！</p>
+        <a href="https://www.yomiuriland.com/tw/season/summer/" target="_blank" class="btn-link official">🌐 官方網站</a>
+        <a href="https://maps.app.goo.gl/VtdBFSnHcEyi66gA9?g_st=awb" target="_blank" class="btn-link">🗺️ 導航地圖</a>
         
-        <!-- 景點 1 -->
-        <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="time-tag">⏰ 08:00 ~ 下午</div>
-            <div class="location-title">
-                📍 <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank">藤子·F·不二雄博物館</a>
-            </div>
-            <div class="info-card">
-                ☀️ 早上 8 點準時起床，辦理退房手續。<br>
-                🚗 準備出發探訪哆啦A夢的祕密基地，並在博物館內享用超可愛的造型主題午餐！
-                <div class="drive-tip">🚗 自駕叮嚀：自大田區大森北出發，車程約 45 分鐘。</div>
-                <div class="btn-group">
-                    <a href="https://fujiko-museum.com/english.html" class="btn btn-web" target="_blank">🌐 官方網站</a>
-                    <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" class="btn btn-map" target="_blank">🗺️ 地圖導航</a>
-                </div>
-            </div>
+        <div class="meta-info" style="margin-top:8px;font-size:12px;">
+          🚙 <b>車程：</b>從藤子F不二雄博物館出發，車程僅約 <span class="highlight">15 - 20 分鐘</span>。
+          <br>📅 <span class="highlight">7/13 當日情報：</span>營業時間為 <b>10:00 - 18:00</b>。
+          <br>🎫 <b>陸上純一日票價：</b>成人約 5,800日圓 / 6歲兒童(小學生)約 4,000日圓。
+          <br>🚦 <b>人流與時段攻略：</b>週一避開了週末人潮，預計人流<span class="highlight">適中偏少</span>。建議 13:00 進園後，先趁高溫期前往室內冷氣充足的「Goodjoba!!」工廠區手工體驗，15:30 過後氣溫回落，再排隊暢玩戶外大型設施，避暑又省時！
         </div>
 
-        <!-- 景點 2 -->
-        <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="time-tag">⏰ 14:00 ~ 傍晚</div>
-            <div class="location-title">
-                📍 <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank">新橫濱拉麵博物館</a>
-            </div>
-            <div class="info-card">
-                🍜 下午 2 點左右，驅車前往充滿昭和懷舊風情的拉麵天堂。<br>
-                在這裡可以一次品嚐到日本全國各地的特色迷你拉麵，好吃又好玩！
-                <div class="drive-tip">🚗 自駕叮嚀：自藤子F不二雄博物館出發，車程約 31 分鐘。</div>
-                <div class="btn-group">
-                    <a href="https://www.raumen.co.jp/" class="btn btn-web" target="_blank">🌐 官方網站</a>
-                    <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" class="btn btn-map" target="_blank">🗺️ 地圖導航</a>
-                </div>
-            </div>
+        <div style="font-size:12px;margin-top:8px;">
+          <b>⚡ 5 大最刺激設施：</b>
+          <ul>
+            <li><b>Bandit 雲霄飛車</b> (最高時速110km高速穿梭)</li>
+            <li><b>Crazy Hyuuu / Stooon</b> (超激速垂直雙塔自由落體)</li>
+            <li><b>Loop Coaster MOMONGA</b> (站立與座式雙玩法360度翻轉)</li>
+            <li><b>Looping Starship</b> (巨型太空船360度驚險大迴轉)</li>
+            <li><b>Hashibiro GO!</b> (巨型圓盤高空瘋狂旋轉擺動)</li>
+          </ul>
+          <b>🧒 5 大最適合 6 歲兒童設施（不玩水）：</b>
+          <ul>
+            <li><b>日清U.F.O.炒麵巨型急流急轉</b> (室內橡皮艇，微濕刺激、身高達110cm可玩)</li>
+            <li><b>Custom Garage 自製小汽車</b> (親手組裝零件並實際在賽道上試駕)</li>
+            <li><b>Spin Runway 室內旋轉飛車</b> (日產服裝主題，室內冷氣極舒適、有身高限制)</li>
+            <li><b>小小消防員 "Kesshippi"</b> (拿水槍瞄準射擊消滅火災，互動感十足)</li>
+            <li><b>大摩天輪 (Sky-Go-LAND)</b> (俯瞰整個園區，晴天還能遠眺富士山)</li>
+          </ul>
         </div>
-
-        <!-- 景點 3 -->
-        <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <div class="time-tag">⏰ 傍晚 ~ 宵夜</div>
-            <div class="location-title">
-                📍 御殿場倫勃朗高級酒店 (Rembrandt Premium Fuji Gotenba)
-            </div>
-            <div class="info-card">
-                ⛰️ 離開橫濱，開車前往富士山腳下的舒適飯店辦理入住手續。<br>
-                地址：靜岡縣御殿場市深澤 2571 (412-0023)。<br>
-                好好泡個湯休息，充飽電明天繼續玩！✨
-            </div>
-        </div>
-
+      </div>
     </div>
+  </div>
 
-    <footer>
-        <p>✨ 祝大家今天玩得開心、吃得飽飽！ ✨</p>
-    </footer>
+  <!-- 行程 3 -->
+  <div class="flow-card green-theme">
+    <span class="time-tag">⏰ 16:30+</span>
+    <h2>📍 <a href="#" onclick="return false;">御殿場倫勃朗高級酒店 (Rembrandt Premium Fuji Gotenba)</a></h2>
+    <p>結束充實的一天，開車前往位於靜岡縣御殿場的豪華溫泉酒店辦理入住房手續。一邊泡湯放鬆身心，一邊欣賞美麗的富士山美景，享用美味的晚餐 🗻✨</p>
+    <div class="meta-info">
+      🏠 <b>飯店地址：</b>2571 Fukasawa, Gotemba City, Shizuoka Prefecture, 412-0023
+      <br>🚙 <b>自駕車程預估（依下午目的地而異）：</b>
+      <ul>
+        <li>從 <b>選項1 (新橫濱拉麵博物館)</b> 出發：約 <span class="highlight">1 小時 15 分鐘 - 1 小時 30 分鐘</span>（經東名高速道路）。</li>
+        <li>從 <b>選項2 (讀賣樂園)</b> 出發：約 <span class="highlight">1 小時 5 分鐘 - 1 小時 20 分鐘</span>（從稻城IC上圈央道/東名高速）。</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 </body>
