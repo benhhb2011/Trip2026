@@ -1,126 +1,138 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-HK">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 3 親子歡樂冒險之旅</title>
-<style>
-body{font-family:'Helvetica Neue',Arial,sans-serif;background-color:#FFF9E6;color:#4A4A4A;margin:0;padding:15px;line-height:1.5}
-.container{max-width:600px;margin:0 auto;background:#FFF;border-radius:20px;padding:20px;box-shadow:0 8px 20px rgba(255,183,3,0.2);border:4px solid #FFB703}
-h1{text-align:center;color:#E63946;font-size:24px;margin-bottom:10px}
-.date-tag{text-align:center;background:#4EA8DE;color:#FFF;padding:5px 15px;border-radius:15px;display:inline-block;margin:0 auto 15px auto;font-weight:bold}
-.center-div{text-align:center}
-.banner-img{width:100%;border-radius:15px;margin-bottom:20px;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
-.flow-card{background:#F8F9FA;border-left:6px solid #FFB703;border-radius:0 15px 15px 0;padding:15px;margin-bottom:20px;position:relative}
-.flow-card.blue-theme{border-left-color:#4EA8DE}
-.flow-card.green-theme{border-left-color:#72EFDD}
-.time-tag{background:#E63946;color:#FFF;padding:3px 10px;border-radius:10px;font-size:12px;font-weight:bold;display:inline-block;margin-bottom:8px}
-.blue-theme .time-tag{background:#4EA8DE}
-.green-theme .time-tag{background:#2A9D8F}
-h2{margin:5px 0 10px 0;font-size:18px;color:#1D3557}
-h2 a{color:#1D3557;text-decoration:none;border-bottom:2px dashed #1D3557}
-.meta-info{font-size:13px;background:#FFF;padding:10px;border-radius:10px;margin-top:10px;border:1px solid #E0E0E0}
-.btn-link{display:inline-block;background:#FFB703;color:#FFF;padding:4px 10px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:bold;margin:4px 2px}
-.btn-link.official{background:#A8DADC;color:#1D3557}
-.split-options{display:grid;grid-template-columns:1fr;gap:15px;margin-top:10px}
-.opt-box{background:#FFF;border:2px dashed #9A8C98;border-radius:12px;padding:12px}
-.opt-title{font-weight:bold;color:#6D597A;font-size:15px;margin-bottom:5px;display:flex;align-items:center}
-ul{margin:5px 0;padding-left:18px;font-size:13px}
-li{margin-bottom:3px}
-.highlight{color:#E63946;font-weight:bold}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東京親子之旅 - Day 3</title>
+    <style>
+        body { background-color: #FFFDE7; color: #333; font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif; margin: 0; padding: 15px; }
+        .header { background: linear-gradient(135deg, #FF7675, #FDCB6E); color: #fff; padding: 20px; border-radius: 20px; text-align: center; box-shadow: 0 8px 0 #E17055; margin-bottom: 20px; }
+        h1 { margin: 0; font-size: 26px; text-shadow: 2px 2px #D63031; }
+        .date { font-size: 16px; font-weight: bold; background: rgba(255,255,255,0.3); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-top: 10px; }
+        .main-img { width: 100%; max-width: 600px; display: block; margin: 15px auto; border: 6px solid #FFF; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .flow-container { max-width: 650px; margin: 0 auto; position: relative; }
+        .node { background: #FFF; border: 3px solid #74B9FF; border-radius: 20px; padding: 20px; margin-bottom: 25px; box-shadow: 0 6px 0 #0984E3; position: relative; }
+        .node:nth-child(even) { border-color: #55E6C1; box-shadow: 0 6px 0 #20BF6B; }
+        .node-title { font-size: 18px; color: #2D3436; font-weight: bold; margin-top: 0; display: flex; align-items: center; gap: 8px; border-bottom: 2px dashed #DDD; padding-bottom: 8px; }
+        .time-tag { background: #FF7675; color: white; padding: 3px 10px; border-radius: 10px; font-size: 14px; }
+        .btn-link { display: inline-block; background: #ffeaa7; color: #d63031; border: 2px solid #fdcb6e; padding: 6px 12px; border-radius: 5px; font-weight: bold; text-decoration: none; margin: 5px 0; font-size: 13px; }
+        .btn-link:hover { background: #fdcb6e; }
+        .badge { background: #ffeaa7; color: #2d3436; padding: 3px 8px; border-radius: 5px; font-size: 12px; font-weight: bold; display: inline-block; }
+        .info-box { background: #F5F6FA; border-radius: 10px; padding: 12px; margin-top: 10px; font-size: 14px; line-height: 1.5; border-left: 5px solid #FF7675; }
+        .option-split { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
+        @media(min-width: 600px) { .option-split { grid-template-columns: 1fr 1fr; } }
+        .opt-box { background: #FFFFF0; border: 2px dashed #FFBE76; padding: 12px; border-radius: 12px; }
+        ul { padding-left: 18px; margin: 5px 0; font-size: 13px; }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>🎈 Day 3 親子歡樂大冒險 🚙</h1>
-  <div class="center-div"><span class="date-tag">2026年7月13日 (星期一)</span></div>
-  
-  <!-- 顯示指定圖片 -->
-  <img src="Day3.jpg" alt="Day 3 快樂旅程" class="banner-img">
-
-  <!-- 行程 1 -->
-  <div class="flow-card">
-    <span class="time-tag">⏰ 08:00 - 12:30</span>
-    <h2>📍 <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank">川崎市 藤子・F・不二雄博物館</a></h2>
-    <p>起床活力滿滿！辦理退房手續後，開車出發前往多啦A夢的夢幻世界！中午直接在館內享用超可愛的主題角色午餐 ☕️</p>
-    <div>
-      <a href="https://fujiko-museum.com/english.html" target="_blank" class="btn-link official">🌐 官方網站</a>
-      <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" target="_blank" class="btn-link">🗺️ 導航地圖</a>
+    <!-- 頁頭與橫幅 -->
+    <div class="header">
+        <h1>🎒 東京親子大冒險 - Day 3</h1>
+        <div class="date">2026年7月13日 (星期一)</div>
     </div>
-    <div class="meta-info">
-      🚗 <b>自駕車程預估：</b>從大田區大森北出發，車程約 <span class="highlight">40 - 50 分鐘</span>（經首都高速/中央自動車道，視早高峰路況而定）。
-    </div>
-  </div>
 
-  <!-- 行程 2 (二選一精采抉擇) -->
-  <div class="flow-card blue-theme">
-    <span class="time-tag">⏰ 13:00 - 16:30</span>
-    <h2>📍 下午行程黃金二選一（請選擇一個方案）</h2>
-    
-    <div class="split-options">
-      <!-- 選項 1 -->
-      <div class="opt-box">
-        <div class="opt-title">🍜 選項 1：新橫濱拉麵博物館</div>
-        <p style="font-size:13px;margin:5px 0;">走入昭和時代的懷舊街景，一次品嚐日本全國的特色拉麵！非常適合愛美食的小朋友。</p>
-        <a href="https://www.raumen.co.jp/" target="_blank" class="btn-link official">🌐 官方網站</a>
-        <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" target="_blank" class="btn-link">🗺️ 導航地圖</a>
-        <div class="meta-info" style="margin-top:8px;font-size:12px;">
-          🚙 <b>車程：</b>從藤子F不二雄博物館出發，車程約 <span class="highlight">35 - 45 分鐘</span>。
-        </div>
-      </div>
-      
-      <!-- 選項 2 -->
-      <div class="opt-box" style="border-color:#4EA8DE;">
-        <div class="opt-title">🎡 選項 2：讀賣樂園 (Yomiuriland)</div>
-        <p style="font-size:13px;margin:5px 0;">東京超大遊樂園！今日專注暢玩陸上設施（不進水上樂園），充實放電！</p>
-        <a href="https://www.yomiuriland.com/tw/season/summer/" target="_blank" class="btn-link official">🌐 官方網站</a>
-        <a href="https://maps.app.goo.gl/VtdBFSnHcEyi66gA9?g_st=awb" target="_blank" class="btn-link">🗺️ 導航地圖</a>
-        
-        <div class="meta-info" style="margin-top:8px;font-size:12px;">
-          🚙 <b>車程：</b>從藤子F不二雄博物館出發，車程僅約 <span class="highlight">15 - 20 分鐘</span>。
-          <br>📅 <span class="highlight">7/13 當日情報：</span>營業時間為 <b>10:00 - 18:00</b>。
-          <br>🎫 <b>陸上純一日票價：</b>成人約 5,800日圓 / 6歲兒童(小學生)約 4,000日圓。
-          <br>🚦 <b>人流與時段攻略：</b>週一避開了週末人潮，預計人流<span class="highlight">適中偏少</span>。建議 13:00 進園後，先趁高溫期前往室內冷氣充足的「Goodjoba!!」工廠區手工體驗，15:30 過後氣溫回落，再排隊暢玩戶外大型設施，避暑又省時！
+    <!-- 主插圖 -->
+    <img src="Day3.jpg" alt="Day3 Activity" class="main-img">
+
+    <!-- 時間軸流程 -->
+    <div class="flow-container">
+
+        <!-- 節點 1 -->
+        <div class="node">
+            <div class="node-title"><span class="time-tag">08:00</span> 📍 Familia Heiwajima II ➔ 川崎市藤子・F・不二雄博物館</div>
+            <p>早上 8 點準時起床，辦理退房手續，收拾好行李後開車出發！中午直接在博物館主題餐廳享用超可愛的哆啦A夢料理。</p>
+            <div>
+                <a href="https://fujiko-museum.com/english.html" class="btn-link" target="_blank">🌐 博物館官網</a>
+                <a href="https://maps.app.goo.gl/yrS5Du5ZRAda8fZu7?g_st=awb" class="btn-link" target="_blank">🗺️ 導航到博物館</a>
+            </div>
+            <div class="info-box">
+                🚗 <strong>自駕車程預估：</strong> 從大田區第一晚住宿開車出發，經由高速道路前往川崎市博物館，車程大約 <strong>35 至 50 分鐘</strong>（視當日市區交通流量而定）。
+            </div>
         </div>
 
-        <div style="font-size:12px;margin-top:8px;">
-          <b>⚡ 5 大最刺激設施：</b>
-          <ul>
-            <li><b>Bandit 雲霄飛車</b> (最高時速110km高速穿梭)</li>
-            <li><b>Crazy Hyuuu / Stooon</b> (超激速垂直雙塔自由落體)</li>
-            <li><b>Loop Coaster MOMONGA</b> (站立與座式雙玩法360度翻轉)</li>
-            <li><b>Looping Starship</b> (巨型太空船360度驚險大迴轉)</li>
-            <li><b>Hashibiro GO!</b> (巨型圓盤高空瘋狂旋轉擺動)</li>
-          </ul>
-          <b>🧒 5 大最適合 6 歲兒童設施（不玩水）：</b>
-          <ul>
-            <li><b>日清U.F.O.炒麵巨型急流急轉</b> (室內橡皮艇，微濕刺激、身高達110cm可玩)</li>
-            <li><b>Custom Garage 自製小汽車</b> (親手組裝零件並實際在賽道上試駕)</li>
-            <li><b>Spin Runway 室內旋轉飛車</b> (日產服裝主題，室內冷氣極舒適、有身高限制)</li>
-            <li><b>小小消防員 "Kesshippi"</b> (拿水槍瞄準射擊消滅火災，互動感十足)</li>
-            <li><b>大摩天輪 (Sky-Go-LAND)</b> (俯瞰整個園區，晴天還能遠眺富士山)</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- 節點 2 -->
+        <div class="node">
+            <div class="node-title"><span class="time-tag">13:00</span> 📍 下午行程選擇 (二選一)</div>
+            <p>下午一點左右離開博物館，今天有兩個非常精彩的親子行程備案：</p>
+            
+            <div class="option-split">
+                <!-- 選項 1 -->
+                <div class="opt-box">
+                    <span class="badge" style="background:#74B9FF; color:white;">✨ 選項 1</span>
+                    <h4>新橫濱拉麵博物館</h4>
+                    <p>營運時間：11:00 - 21:00</p>
+                    <a href="https://www.raumen.co.jp/" class="btn-link" target="_blank">🌐 拉麵館官網</a>
+                    <a href="https://maps.app.goo.gl/uRW5QWzRedkHJfMUA?g_st=awb" class="btn-link" target="_blank">🗺️ 地圖導航</a>
+                    <p style="font-size:12px; color:#666; margin-top:8px;">🚗 <strong>車程：</strong>從藤子F不二雄博物館開車前往約 <strong>30-40 分鐘</strong>。</p>
+                </div>
+                
+                <!-- 選項 2 -->
+                <div class="opt-box">
+                    <span class="badge" style="background:#55E6C1; color:white;">✨ 選項 2</span>
+                    <h4>讀賣樂園 (Yomiuriland)</h4>
+                    <p>營運時間：10:00 - 18:00 (暑期正常營業)</p>
+                    <a href="https://www.yomiuriland.com/tw/season/summer/" class="btn-link" target="_blank">🌐 讀賣樂園暑期官網</a>
+                    <a href="https://maps.app.goo.gl/VtdBFSnHcEyi66gA9?g_st=awb" class="btn-link" target="_blank">🗺️ 地圖導航</a>
+                </div>
+            </div>
 
-  <!-- 行程 3 -->
-  <div class="flow-card green-theme">
-    <span class="time-tag">⏰ 16:30+</span>
-    <h2>📍 <a href="#" onclick="return false;">御殿場倫勃朗高級酒店 (Rembrandt Premium Fuji Gotenba)</a></h2>
-    <p>結束充實的一天，開車前往位於靜岡縣御殿場的豪華溫泉酒店辦理入住房手續。一邊泡湯放鬆身心，一邊欣賞美麗的富士山美景，享用美味的晚餐 🗻✨</p>
-    <div class="meta-info">
-      🏠 <b>飯店地址：</b>2571 Fukasawa, Gotemba City, Shizuoka Prefecture, 412-0023
-      <br>🚙 <b>自駕車程預估（依下午目的地而異）：</b>
-      <ul>
-        <li>從 <b>選項1 (新橫濱拉麵博物館)</b> 出發：約 <span class="highlight">1 小時 15 分鐘 - 1 小時 30 分鐘</span>（經東名高速道路）。</li>
-        <li>從 <b>選項2 (讀賣樂園)</b> 出發：約 <span class="highlight">1 小時 5 分鐘 - 1 小時 20 分鐘</span>（從稻城IC上圈央道/東名高速）。</li>
-      </ul>
+            <!-- 讀賣樂園詳細情報 -->
+            <div class="info-box" style="border-left-color: #55E6C1; background: #F0FFF4;">
+                <strong>🎢 讀賣樂園 7月13日 深度攻略（不玩水上樂園）：</strong><br>
+                💰 <strong>一日通票參考價：</strong> 成人約 ¥5,800，小童(6歲)約 ¥4,000。<br>
+                🚦 <strong>當日人流預測：</strong> 星期一非週末，人流預計<strong>中等偏少</strong>，熱門設施排隊時間約 15-30 分鐘，13:00 入園最適合先玩室內冷氣區，15:00 後去戶外。<br><br>
+                🔥 <strong>Top 5 最刺激設施：</strong>
+                <ul>
+                    <li>Bandit (最高速過山車，6歲滿120cm可玩)</li>
+                    <li>Splash U.F.O. (激流急流急轉彎，室內超熱門)</li>
+                    <li>Spin Runway (室內螺旋型過山車，配有音樂節奏)</li>
+                    <li>Lipovitan Rocket☆Luna (室內懸吊式太空過山車)</li>
+                    <li>Looping Spaceship (360度瘋狂翻轉太空船)</li>
+                </ul>
+                👶 <strong>Top 5 適合6歲兒童遊玩設施 (陸上無水)：</strong>
+                <ul>
+                    <li>Sky-Go-LAND (可以自己動手裝飾的小型過山車)</li>
+                    <li>巨型摩天輪 (大觀覽車，可遠眺富士山美景)</li>
+                    <li>Custom Garage (可以自己組裝並試駕真實小汽車)</li>
+                    <li>日清U.F.O.製作工坊 (動手繪製並製作個人專屬炒麵麵餅)</li>
+                    <li>Animal Rescue (互動式坐車射擊計分遊戲)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 節點 3 -->
+        <div class="node">
+            <div class="node-title"><span class="time-tag">16:30</span> 📍 橫濱站 Doraemon Pop-up Store (順路加點)</div>
+            <p>若下午提早結束或時間充裕，可順道前往橫濱站購買期間限定的哆啦A夢精美周邊！</p>
+            <div>
+                <a href="https://flowering.co.jp/info/im-doraemon-pop-up-store/" class="btn-link" target="_blank">🌐 快閃店情報網</a>
+                <a href="https://maps.app.goo.gl/yAMHSDf9642PoRCe8?g_st=awb" class="btn-link" target="_blank">🅿️ 橫濱東口地下停車場導航</a>
+                <a href="https://www.yokohama-shintoshi.co.jp/parking/" class="btn-link" target="_blank">ℹ️ 停車場官網</a>
+            </div>
+            <div class="info-box" style="border-left-color: #FDCB6E;">
+                🚘 <strong>橫濱新都市東口地下停車場優惠：</strong><br>
+                在 <strong>SOGO 崇光百貨橫濱店</strong> 或 <strong>Porta 地下街</strong> 當日消費滿 ¥2,000 可享 <strong>1.5小時免費停車</strong>；消費滿 ¥5,000 可享 <strong>3小時免費停車</strong>。
+            </div>
+        </div>
+
+        <!-- 節點 4 -->
+        <div class="node">
+            <div class="node-title"><span class="time-tag">18:30</span> 📍 富士御殿場倫勃朗高級酒店 (Check-in)</div>
+            <p>傍晚啟程離開橫濱/東京區域，開車前往位於靜岡縣的溫泉度假酒店，入住並放鬆身心，準備明天的富士山行程。</p>
+            <div class="info-box" style="border-left-color: #6C5CE7; background: #F8F8FF;">
+                🏁 <strong>目的地：</strong> Rembrandt Premium Fuji Gotenba<br>
+                🚗 <strong>出發地至酒店的自駕車程預估：</strong>
+                <ul>
+                    <li>從 <strong>新橫濱拉麵博物館</strong> 出發：經東名高速約 <strong>1小時10分鐘 - 1小時30分鐘</strong>。</li>
+                    <li>從 <strong>讀賣樂園</strong> 出發：經中央道或圈央道接東名約 <strong>1小時15分鐘 - 1小時40分鐘</strong>。</li>
+                    <li>從 <strong>橫濱JR站</strong> 出發：經保土谷繞道接東名高速約 <strong>1小時15分鐘 - 1小時35分鐘</strong>。</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
-  </div>
-</div>
 
 </body>
 </html>
