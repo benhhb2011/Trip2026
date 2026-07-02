@@ -1,89 +1,109 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-HK">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京親子遊 Day 7</title>
+    <title>Day 7 歡樂親子自駕遊</title>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; background: #FFF5E4; color: #4A4A4A; padding: 12px; margin: 0; line-height: 1.4; }
-        .hdr { text-align: center; background: linear-gradient(135deg, #4D96FF, #FFC75F); color: #fff; padding: 15px; border-radius: 20px; box-shadow: 0 4px 0 #2A75D3; margin-bottom: 15px; }
-        .hdr h1 { margin: 0 0 5px 0; font-size: 1.5rem; text-shadow: 1.5px 1.5px #1A5F7A; }
-        .img-box { text-align: center; margin-bottom: 15px; }
-        .img-box img { max-width: 100%; height: auto; border: 4px solid #fff; border-radius: 12px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
-        .node { background: #fff; border: 2px solid #FFD2D2; border-radius: 15px; padding: 12px; margin-bottom: 15px; box-shadow: 0 4px 0 #FFD2D2; }
-        .badge { background: #FF7B94; color: #fff; padding: 2px 8px; border-radius: 50px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 6px; }
-        .title { font-size: 1.15rem; font-weight: bold; color: #2C3E50; margin-bottom: 6px; }
-        .sub { background: #F9F9F9; border-left: 3.5px solid #4D96FF; padding: 8px; margin: 6px 0; border-radius: 0 8px 8px 0; font-size: 0.88rem; }
-        .sub-t { font-weight: bold; color: #4D96FF; margin-bottom: 2px; }
-        .info { background: #E8F4FF; border: 1.5px dashed #4D96FF; padding: 8px; border-radius: 10px; margin-top: 6px; font-size: 0.85rem; }
-        .btn { display: inline-block; background: #fff; color: #2980B9; border: 1px solid #2980B9; padding: 2px 8px; border-radius: 50px; text-decoration: none; font-size: 0.75rem; font-weight: bold; margin: 2px 1px; }
-        .btn:hover { background: #2980B9; color: #fff; }
-        footer { text-align: center; color: #95A5A6; font-size: 0.75rem; padding: 5px; }
+        body { font-family: 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif; background: #FFF9E6; color: #333; margin: 0; padding: 15px; }
+        .box { max-width: 600px; margin: 0 auto; background: #FFF; padding: 20px; border-radius: 20px; border: 4px dashed #FFB703; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .hdr { text-align: center; background: #FFB703; color: #FFF; padding: 12px; border-radius: 15px; margin-bottom: 20px; }
+        .hdr h1 { margin: 0; font-size: 22px; }
+        .pic { width: 100%; border-radius: 12px; margin-bottom: 20px; display: block; border: 2px solid #FFB703; }
+        .line { border-left: 3px dotted #219EBC; margin-left: 15px; padding-left: 15px; }
+        .card { background: #F8F9FA; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #E0E0E0; position: relative; }
+        .card::before { content: '🎈'; position: absolute; left: -27px; top: 12px; font-size: 16px; }
+        .title { font-size: 16px; font-weight: bold; color: #023047; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .badge { background: #219EBC; color: #FFF; padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+        .info { font-size: 13px; line-height: 1.5; margin-top: 6px; }
+        .tag { background: #FFE8E8; color: #D90429; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 12px; }
+        .p-info { background: #FFF3CD; padding: 8px; border-radius: 6px; font-size: 12px; margin-top: 8px; border-left: 3px solid #FFC107; }
+        a { color: #0077B6; text-decoration: none; font-weight: bold; }
+        a:hover { text-align: underline; }
     </style>
 </head>
 <body>
 
-    <!-- 網頁標題區 -->
+<div class="box">
     <div class="hdr">
-        <h1>東京親子快樂冒險 ⚡</h1>
-        <div>📅 Day 7：2026年7月17日 (星期五)</div>
+        <h1>✨ 2026年7月17日 (五) ✨<br>Day 7 親子童趣冒險流</h1>
     </div>
 
-    <!-- 指定顯示圖片 Day7.jpg -->
-    <div class="img-box">
-        <img src="Day7.jpg" alt="Day 7 行程封面">
+    <img src="Day7.jpg" alt="行程橫幅" class="pic">
+
+    <div class="line">
+
+        <!-- 景點 1 -->
+        <div class="card">
+            <div class="title">
+                <span>📍 Sunshine City 寶可夢中心</span>
+                <span class="badge">10:00 出發</span>
+            </div>
+            <div class="info">
+                🚗 <b>預估車程：</b>約 35 ~ 45 分鐘（由西小岩出發）<br>
+                🗺️ <b>導航路線：</b><a href="https://maps.app.goo.gl/hh4hZdG7jpaUEcge8?g_st=awb" target="_blank">Google 地圖連結</a><br>
+                🌟 <b>亮點介紹：</b>這是全日本最大的寶可夢中心 Mega Tokyo！現場有巨大的噴火龍、超夢迎接大家，還有獨家的「Pokémon GO Lab」互動區域與超萌的外帶甜點店 Pikachu Sweets，孩子絕對超愛！
+            </div>
+            <div class="p-info">
+                🅿️ <b>停車資訊：</b>大樓附設地下停車場。詳細收費與折抵請參考 <a href="https://sunshinecity.jp/information/access_car.html" target="_blank">Sunshine City 官方停車指南</a>。
+            </div>
+        </div>
+
+        <!-- 景點 2 -->
+        <div class="card">
+            <div class="title">
+                <span>📍 Yodobashi 池袋 (5F 玩具層)</span>
+                <span class="badge">彈性加碼</span>
+            </div>
+            <div class="info">
+                💡 <i>時間充裕時推薦順遊！</i><br>
+                🏬 <b>商場介紹：</b>這是近年全新開幕的池袋矚目旗艦店！5 樓玩具童玩專區規模極大，擁有最新、最齊全的扭蛋機牆、動漫模型周邊與熱門玩具，非常好買！<br>
+                🌐 <b>官方網站：</b><a href="https://www.yodobashi.com/ec/store/0016/" target="_blank">Yodobashi 池袋店官網</a>
+            </div>
+            <div class="p-info">
+                🅿️ <b>停車優惠：</b>消費滿 5,000日圓免停 1 小時 / 滿 10,000日圓免停 2 小時 / 滿 50,000日圓最高免停 3 小時。<br>
+                🗺️ <b>兩大特約車場導航：</b> 
+                <a href="https://maps.app.goo.gl/XXkBKA714NUAgwmr8?g_st=awb" target="_blank">特約停車場 A</a> | 
+                <a href="https://maps.app.goo.gl/iAceQmjfVn88JVDS8?g_st=awb" target="_blank">特約停車場 B</a><br>
+                ℹ️ <b>詳情參考：</b><a href="https://www.yodobashi.com/ec/store/map/0016/" target="_blank">官方停車場折抵說明網頁</a>
+
+
+</b><a href="https://maps.app.goo.gl/hh4hZdG7jpaUEcge8?g_st=awb" target="_blank">Google 地圖連結</a><br>
+
+            </div>
+        </div>
+
+        <!-- 景點 3 -->
+        <div class="card">
+            <div class="title">
+                <span>📍 Aeon Lake Town 越谷 (Mori棟)</span>
+                <span class="badge">中午時段</span>
+            </div>
+            <div class="info">
+                🚗 <b>預估車程：</b>從池袋出發開車約 45 ~ 60 分鐘。<br>
+                🛍️ <b>商場特色：</b>全日本規模最大的巨型購物中心，極度適合親子血拼！<br>
+                🍜 <span class="tag">美食必吃</span> <b>商場內有一蘭拉麵喔！</b> 位於 Mori 棟 1 樓的美食街，位置超方便，血拼完剛好帶著孩子一起享用！<br>
+                🌐 <b>商場官網：</b><a href="https://www.aeon-laketown.jp/mori/" target="_blank">Aeon Lake Town (Mori) 網頁</a>
+            </div>
+            <div class="p-info">
+                🅿️ <b>停車位置定位：</b>平日基本上有免費停車時數，假日車多建議直接導航至特設停車場入口：<a href="https://maps.app.goo.gl/NJ7J1fw6yZ8THk6v7?g_st=awb" target="_blank">點我開啟 Google 停車場導航</a>。
+            </div>
+        </div>
+
+        <!-- 景點 4 -->
+        <div class="card" style="margin-bottom: 0;">
+            <div class="title">
+                <span>📍 溫馨開車返回起點</span>
+                <span class="badge">20:00 返程</span>
+            </div>
+            <div class="info">
+                🚗 <b>預估車程：</b>從 Aeon Lake Town 返回西小岩約 40 ~ 50 分鐘。<br>
+                🏠 <b>回程終點：</b>5 Chome-15-21 Nishikoiwa, Edogawa City, Tokyo
+            </div>
+        </div>
+
     </div>
-
-    <!-- 行程 1：Sunshine City Pokemon Center -->
-    <div class="node">
-        <span class="badge">10:00 出發</span>
-        <div class="title">📍 池袋太陽城寶可夢中心 (Pokémon Center Mega Tokyo)</div>
-        
-        <div class="info">
-            🚗 <b>自駕時間預估：</b>從江戶川區民宿（<i>5 Chome-15-21 Nishikoiwa</i>）開車出發，行經首都高速道路，車程約 <b>30 ~ 40 分鐘</b>。
-        </div>
-        
-        <div class="sub">
-            <div class="sub-t">⭐ 這間寶可夢中心的特別之處：</div>
-            <p>這是全日本<b>規模最大</b>的旗艦級寶可夢中心（Mega Tokyo）！店門口有超震撼的巨型噴火龍與皮卡丘迎接大家。這裡不只有全日本最齊全的限定玩偶與玩具，現場還設有全世界首間<b>寶可夢外帶甜點店「Pokémon Go Lab」</b>和當季限定打卡場景，小朋友絕對會逛到不想離開！</p>
-        </div>
-
-        <div class="info">
-            🗺️ <b>地圖與停車指引：</b><br>
-            <a class="btn" href="https://maps.app.goo.gl/hh4hZdG7jpaUEcge8?g_st=awb" target="_blank">打開 Sunshine City Google Map 🗺️</a>
-            <a class="btn" href="https://sunshinecity.jp/information/access_car.html" target="_blank">官方停車場詳細資訊 🅿️</a>
-        </div>
-    </div>
-
-    <!-- 行程 2：Aeon Lake Town -->
-    <div class="node">
-        <span class="badge">中午行程</span>
-        <div class="title">📍 越谷永旺夢樂城 (Aeon Lake Town)</div>
-        
-        <div class="info">
-            🚗 <b>自駕時間預估：</b>從池袋 Sunshine City 駕車前往埼玉縣的 Aeon Lake Town，車程約 <b>45 ~ 60 分鐘</b>（視當下國道與高速公路車流而定）。
-        </div>
-
-        <div class="sub">
-            <div class="sub-t">🛍️ 全家瘋狂血拼天堂：</div>
-            <p>日本規模最大的巨型購物中心！分為 kaze、mori 及 Outlet 三大棟，擁有超過 700 間店鋪。這裡不只有超好買的流行服飾、嬰幼兒用品店，還有超大美食街和豐富的兒童室內遊樂場，非常適合全家人花一整個下午在這裡舒適地血拼與用餐！</p>
-        </div>
-    </div>
-
-    <!-- 行程 3：開車回民宿 -->
-    <div class="node">
-        <span class="badge">20:00 回程</span>
-        <div class="title">📍 開車返回江戶川民宿</div>
-        <p>目的地：5 Chome-15-21 Nishikoiwa, Edogawa City, Tokyo 133-0059, Japan</p>
-        
-        <div class="info">
-            🚗 <b>自駕時間預估：</b>從 Aeon Lake Town 駕車回江戶川區民宿，車程約 <b>35 ~ 50 分鐘</b>。由於剛好是週五夜晚，市區交界處車流可能稍多，開車請注意安全唷！
-        </div>
-    </div>
-
-    <footer>
-        <p>🎈 祝你們全家在東京第七天血拼大豐收、玩得超級開心！ 🎈</p>
-    </footer>
+</div>
 
 </body>
 </html>
